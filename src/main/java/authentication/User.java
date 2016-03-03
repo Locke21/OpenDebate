@@ -3,15 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package users;
+package authentication;
 
 /**
  *
  * @author D062572
  */
 public class User {
-   private String name;
+    private String name;
+    private String password;
 
+    public static final String DUMMY_NAME1 = "DUMMY1";
+    public static final String DUMMY_PW1 = "DUMMY1";
+    public static final String DUMMY_NAME2 = "DUMMY2";
+    public static final String DUMMY_PW2 = "DUMMY2";
+    
     public void setName(String name) {
         this.name = name;
     }
