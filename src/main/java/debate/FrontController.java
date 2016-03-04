@@ -23,6 +23,7 @@ public class FrontController extends HttpServlet {
 
     private static final String ACTION_PARAMETER = "action";
     private static final String ACTION_LOGIN = "login";
+    private static final String ACTION_SIGNUP = "signUp";
     private static final String ACTION_LOGOUT = "logout";
     
     public static final String PAGES_PREFIX = "/WEB-INF/jsp";
@@ -61,6 +62,9 @@ public class FrontController extends HttpServlet {
                     break;
                 case ACTION_LOGOUT:
                     getServletContext().getRequestDispatcher("/servlets/LogoutController").forward(req, resp);
+                    break;
+                case ACTION_SIGNUP:
+                    getServletContext().getRequestDispatcher("/servlets/SignUpController").forward(req, resp);
                     break;
                 default:
                     resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
