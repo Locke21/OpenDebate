@@ -5,14 +5,14 @@
  */
 package debate;
 
+import authentication.AuthenticationBean;
 import java.io.IOException;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import authentication.Authenticator;
-import javax.servlet.annotation.WebFilter;
 /**
  *
  * @author D062572
@@ -28,12 +28,15 @@ public class FrontController extends HttpServlet {
     public static final String PAGES_PREFIX = "/WEB-INF/jsp";
     public static final String FRONT_PATH = "/OpenDebate/pages/";
     
+    @EJB
+    private AuthenticationBean authenticator;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
        
-        if(Authenticator.isClientAuthenticated(request)){  
+        if(authenticator.isClientAuthenticated(request)){  
             getServletContext().getRequestDispatcher(PAGES_PREFIX+"/home.jsp")
                                 .forward(request,response);
         }else{

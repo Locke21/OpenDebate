@@ -5,7 +5,7 @@
  */
 package users;
 
-import authentication.User;
+import authentication.DebateUser;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,27 +29,28 @@ public class UserTest {
     }
 
     /**
-     * Test of setName method, of class User.
+     * Test of setName method, of class DebateUser.
      */
     @org.junit.Test
     public void testSetName() {
         System.out.println("setName");
         String name = "newName";
-        User instance = new User("name");
-        instance.setName(name);
+        DebateUser instance = new DebateUser();
+        instance.setUsername(name);
         // TODO review the generated test code and remove the default call to fail.
-        assertEquals(name, instance.getName());
+        assertEquals(name, instance.getUsername());
     }
 
     /**
-     * Test of getName method, of class User.
+     * Test of getName method, of class DebateUser.
      */
     @org.junit.Test
     public void testGetName() {
         System.out.println("getName");
         String expResult = "NAME";
-        User instance = new User(expResult);
-        String result = instance.getName();
+        DebateUser instance = new DebateUser();
+        instance.setUsername(expResult);
+        String result = instance.getUsername();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
     }

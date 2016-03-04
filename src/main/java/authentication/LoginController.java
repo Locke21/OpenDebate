@@ -16,18 +16,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import debate.FrontController;
+import javax.ejb.EJB;
 /**
  *
  * @author D062572
  */
 @WebServlet(name = "LoginController", urlPatterns = {"/servlets/LoginController"})
 public class LoginController extends HttpServlet {
+    @EJB
+    private AuthenticationBean authenticator;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
-        if(Authenticator.isClientAuthenticated(request)){
+        if(authenticator.isClientAuthenticated(request)){
             response.sendRedirect(FrontController.FRONT_PATH);
         }else{
         
@@ -35,13 +38,13 @@ public class LoginController extends HttpServlet {
             String pwd = request.getParameter("pwd");
             
             if(pwd != null && user != null){
-                if(Authenticator.authenticateClient(user,pwd)){
+                if(authenticator.authenticateClient(user,pwd)){
                     
                     HttpSession session = request.getSession();
-                    session.setAttribute(Authenticator.USERNAME_ATTRIBUTE, user);
+                    session.setAttribute(AuthenticationBean.USERNAME_ATTRIBUTE, user);
                     session.setMaxInactiveInterval(30*60);
 
-                    Cookie userName = new Cookie(Authenticator.USERNAME_ATTRIBUTE, user);
+                    Cookie userName = new Cookie(AuthenticationBean.USERNAME_ATTRIBUTE, user);
                     userName.setMaxAge(30*60);
                     response.addCookie(userName);
                 

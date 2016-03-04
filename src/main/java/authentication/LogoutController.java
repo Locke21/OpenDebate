@@ -34,14 +34,14 @@ public class LogoutController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        if(!Authenticator.isClientAuthenticated(request)){
+        if(!new AuthenticationBean().isClientAuthenticated(request)){
             response.sendRedirect(FrontController.FRONT_PATH);
         }else{
         
             //invalidate the session if exists
             HttpSession session = request.getSession(false);
             if(session != null){
-                request.setAttribute("name", session.getAttribute(Authenticator.USERNAME_ATTRIBUTE));
+                //request.setAttribute("name", session.getAttribute(Authenticator.USERNAME_ATTRIBUTE));
                 session.invalidate();
             }
             

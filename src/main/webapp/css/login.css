@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 4, 2016, 10:01:29 AM
+    Author     : D062572
+*/
+
+body{
+    background:#EFEFEF url("http://vanguar.de/wp-content/themes/Pindle/uploads/bg/bg1.png") repeat;
+
+  
+    
+}
+
+.mainbox{
+    border-top: 8px solid #488C2A;
+    margin: auto;
+    margin-top: 180px;
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 0px 0px 3px;
+    max-width: 550px;
+}
+
+.logo{
+    max-height: 50px;
+    max-width: 320px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

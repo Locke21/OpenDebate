@@ -4,8 +4,7 @@
     Author     : D062572
 --%>
 
-<%@page import="authentication.Authenticator"%>
-<%@page import="debate.FrontController"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,25 +15,30 @@
         
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap-theme.css">
+        <link type="text/css" rel="stylesheet" href="/OpenDebate/css/login.css">
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
         
     </head>
-    <body>
+    <body class="center-block">
         <div class="container mainbox">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <img class="center-block" src="/OpenDebate/img/logo_open_debate.png" alt="logo"/>
+            
+                
+                    <img class="center-block logo" src="/OpenDebate/img/logo_open_debate.png" alt="logo"/>
                     <form action="/OpenDebate/pages" method="post">
-                        Username: <input type="text" name="user">
-                        <br>
-                        Password: <input type="password" name="pwd">
-                        <br>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="user" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="pwd" placeholder="Password">
+                        </div>
                         <input type="hidden" name="action" value="login">
+                        <div class="modal-footer">
                         <input class="btn-default btn" type="submit" value="Login">
+                        </div>
                     </form>
-                </div>
-            </div>
+                
+            
         </div>
     </body>
 </html>

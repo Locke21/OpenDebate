@@ -5,6 +5,11 @@
  */
 package authentication;
 
+import java.util.List;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,16 +18,21 @@ import javax.servlet.http.HttpSession;
  *
  * @author D062572
  */
-public class Authenticator {
-    
+@Stateless(name="AuthenticationBean")
+@LocalBean
+public class AuthenticationBean{
+
     public static final String USERNAME_ATTRIBUTE = "user";    
     
+    @PersistenceContext(unitName="OpenDebatePU") 
+    private EntityManager em;
+     
     /**
      * 
      * @param clientRequest ...
      * @return boolean value ...
      */
-    public static boolean isClientAuthenticated(HttpServletRequest clientRequest){
+    public boolean isClientAuthenticated(HttpServletRequest clientRequest){
     
         boolean isAuthenticated = false;
         
@@ -57,14 +67,24 @@ public class Authenticator {
      * @param pwd
      * @return 
      */
-    public static boolean authenticateClient(String user, String pwd){
+    public boolean authenticateClient(String user, String pwd){
     
         //hier session beans zur identifiezierung und DB-Abfrage etc
-        
-        return user.equals(User.DUMMY_NAME1) && pwd.equals(User.DUMMY_PW1) || 
-                user.equals(User.DUMMY_NAME2) && pwd.equals(User.DUMMY_PW2);
+        if(em == null){
+            System.out.println("is null");
+            return false;
+        }
+        List<DebateUser> users = em.createQuery("SELECT u "
+                                        + "FROM DebateUser u "
+                                        + "WHERE u.username = :username AND u.password = :password")
+                              .setParameter("username", user)
+                              .setParameter("password", pwd)
+                              .getResultList();
+                
+        System.out.println(users);
+        return users.size() == 1;
         
     }
     
-
+    
 }
