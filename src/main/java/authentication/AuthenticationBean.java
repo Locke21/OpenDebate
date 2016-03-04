@@ -69,7 +69,6 @@ public class AuthenticationBean{
      */
     public boolean authenticateClient(String user, String pwd){
     
-        //hier session beans zur identifiezierung und DB-Abfrage etc
         if(em == null){
             System.out.println("is null");
             return false;

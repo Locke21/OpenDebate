@@ -17,13 +17,64 @@
         
     </head>
     <body>
-        <h1>Hello ${sessionScope.user}</h1>
-        
-        <div class="col-lg-8">
-            <form action="." method="post">
-                <input type="hidden" name="action" value="logout">
-                <input type="submit" value="Logout">
-            </form>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="."><img style="max-width: 400px; height: 25px" src="/OpenDebate/img/logo_open_debate.png"/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    
+                    <form class="navbar-form navbar-right" action="." method="post">
+                        <div class="form-group">
+                            <input type="hidden" name="action" value="logout">
+                            <input class="btn btn-default"type="submit" value="Logout">
+                        </div>
+                    </form>
+                    <p class="navbar-text navbar-right">Hello ${sessionScope.user}</p>
+                </div>
+            </div>
+        </nav>
+        <div class="container mainbox">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Create debate</h2>
+                    <form action="." method="post">
+                        <div class="form-group">
+                          
+                            <input type="hidden" name="action" value="logout">
+                            <input class="form-control" type="text" name="topic" placeholder="Topic">
+                            <input class="form-control" type="text" name="description" placeholder="Description">
+                            <input class="form-control" type="text" name="tags" placeholder="Tags">
+                            <input class="form-control" type="date" name="closingDate" placeholder="1.1.2017">
+                            <input class="btn btn-default"type="submit" value="Create">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <h2>Create comment</h2>
+                    <form action="." method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="debateId" placeholder="DebateID">
+                            <input class="form-control" type="text" name="comment" placeholder="comment">
+                            <input type="hidden" name="action" value="logout">
+                            <input class="btn btn-default"type="submit" value="Create">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+        
     </body>
 </html>
