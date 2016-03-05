@@ -16,7 +16,9 @@
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap-theme.css">
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/login.css">
+        
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
+        <script type="text/javascript" src="/OpenDebate/js/login.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
 
     </head>
@@ -40,12 +42,16 @@
             </form>
 
             <div class="collapse" id="collapseExample">
-                <form action="/OpenDebate/pages" method="post">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="newUser" placeholder="Your Username">
+                <form action="/OpenDebate/pages" name="SignUp" onsubmit="return validateForm();" method="post">
+                    <div id="userNameField" class="form-group">
+                        <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
+                        <span></span>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="password" name="newPassword" placeholder="Your Password">
+                        <input id="newPassword" class="form-control" type="password" name="newPassword" placeholder="Your Password">
+                    </div>
+                    <div class="form-group">
+                        <input id="newPassword2" class="form-control" type="password" name="newPassword2" placeholder="Repeat Password">
                     </div>
                     <input type="hidden" name="action" value="signUp">
                     <div class="modal-footer">

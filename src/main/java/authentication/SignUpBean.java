@@ -8,6 +8,7 @@ package authentication;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.FlushModeType;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -25,12 +26,16 @@ public class SignUpBean {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
-    public void addUser(String name, String pwd){
-        DebateUser newUser = new DebateUser();
-        newUser.setUsername(name);
-        newUser.setPassword(pwd);
+    public void addUser(String name, String pwd){       
         
-        em.persist(newUser);
+        DebateUser newDebateUser = new DebateUser();
+        newDebateUser.setUsername(name);
+        newDebateUser.setPassword(pwd);
+        em.persist(newDebateUser);
+        
+      
+        
+        
                                    
     }
 }

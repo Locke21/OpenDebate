@@ -28,12 +28,8 @@ public class SignUpController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        String newUsername = request.getParameter("newUsername");
-        String newPassword = request.getParameter("newPassword");
-        
-       signUp.addUser(newUsername, newPassword);
+       System.out.println(request.getParameter("newUser"));
+       signUp.addUser(request.getParameter("newUser"), request.getParameter("newPassword"));
        
        response.sendRedirect(FrontController.FRONT_PATH);
     }
