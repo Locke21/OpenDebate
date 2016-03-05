@@ -18,6 +18,7 @@
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/login.css">
         
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script> 
         <script type="text/javascript" src="/OpenDebate/js/login.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
 
@@ -36,17 +37,18 @@
                 </div>
                 <input type="hidden" name="action" value="login">
                 <div class="modal-footer">
-                    <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Noch kein Mitglied?</a>       
+                    <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Not a Member yet?</a>       
                     <input class="btn-default btn" type="submit" value="Login">                                        
                 </div>
             </form>
 
             <div class="collapse" id="collapseExample">
-                <form action="/OpenDebate/pages" name="SignUp" onsubmit="return validateForm();" method="post">
+                <form id="signUp" onSubmit="return validateForm(); "action="/OpenDebate/pages" name="SignUp" method="post">
                     <div id="userNameField" class="form-group">
                         <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
-                        <span></span>
+                        <span>${sessionScope.PostFailedMsg}</span>
                     </div>
+                   
                     <div class="form-group">
                         <input id="newPassword" class="form-control" type="password" name="newPassword" placeholder="Your Password">
                     </div>

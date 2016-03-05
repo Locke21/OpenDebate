@@ -5,6 +5,8 @@
  */
 
 
+
+
 function validateForm() {
 $('#newUser').bind('input', function() {
     $(this).next().stop(true, true).fadeIn(0).html('[input event fired!]: ' + $(this).val()).fadeOut(2000);
@@ -17,11 +19,12 @@ $('#newUser').bind('input', function() {
         input.className = "has-error form-group";
         document.getElementById("newUser").className = "form-control";
         document.forms["SignUp"]["newUser"].placeholder = "Enter a username!";
-        return false;
+        return true;
     } else if (user !== "") {
 
         alert("Created!");
         return true;
     }
+    return true;
 }
 

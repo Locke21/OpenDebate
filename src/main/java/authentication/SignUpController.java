@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,10 +29,29 @@ public class SignUpController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       System.out.println(request.getParameter("newUser"));
-       signUp.addUser(request.getParameter("newUser"), request.getParameter("newPassword"));
+       String username = request.getParameter("newUser");
+       String password = request.getParameter("newPassword");
+       String password2 = request.getParameter("newPassword2");
        
-       response.sendRedirect(FrontController.FRONT_PATH);
+       if(username!=null && password!=null && password2!=null){
+           try{
+               signUp.createUser(username,password);
+           }
+           catch(javax.ejb.EJBException ex){
+               HttpSession session = request.getSession();
+               session.setAttribute("PostFailedMsg", "Username already exists.");
+               
+           }
+           response.sendRedirect(FrontController.FRONT_PATH);
+       }
+       else{
+           HttpSession session = request.getSession();
+               session.setAttribute("PostFailedMsg", "enter a username!");
+               response.sendRedirect(FrontController.FRONT_PATH);
+       }
+       
+       
+       
     }
 
 
