@@ -58,6 +58,7 @@ $('#newPassword2Field').bind('input', function() {
     if (password.val() === ""){
         alert("Password can't be empty!");
         $("#newPassword").addClass("has-error");
+        $("#newPasswordField").focus();
         return false;
     }
     if (password.val() !== password2.val()){
@@ -66,6 +67,7 @@ $('#newPassword2Field').bind('input', function() {
         $("#newPassword2").addClass("has-error");
         password.val("");
         password2.val("");
+        $("#newPasswordField").focus();
         return false;
     }
     alert("Created!");
