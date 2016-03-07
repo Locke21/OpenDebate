@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : login
     Created on : Mar 2, 2016, 2:42:23 PM
     Author     : D062572
@@ -16,8 +16,9 @@
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap-theme.css">
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/login.css">
-        
+
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/login.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
 
@@ -36,27 +37,29 @@
                 </div>
                 <input type="hidden" name="action" value="login">
                 <div class="modal-footer">
-                    <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Noch kein Mitglied?</a>       
-                    <input class="btn-default btn" type="submit" value="Login">                                        
+                    <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Not a Member yet?</a>
+                    <input class="btn-default btn" type="submit" value="Login">
                 </div>
             </form>
 
             <div class="collapse" id="collapseExample">
-                <form action="/OpenDebate/pages" name="SignUp" onsubmit="return validateForm();" method="post">
+                <form id="signUp" onSubmit="return validateForm();" action="/OpenDebate/pages" name="SignUp" method="post">
                     <div id="userNameField" class="form-group">
                         <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
                         <span></span>
                     </div>
+
                     <div id="newPassword" class="form-group">
                         <input id="newPasswordField" class="form-control" type="password" name="newPassword" placeholder="Your Password">
                     </div>
                     <div id="newPassword2" class="form-group">
                         <input id="newPassword2Field" class="form-control" type="password" name="newPassword2" placeholder="Repeat Password">
+
                     </div>
                     <input type="hidden" name="action" value="signUp">
                     <div class="modal-footer">
 
-                        <input class="btn-success btn" type="submit" value="Sign Up">                                        
+                        <input class="btn-success btn" type="submit" value="Sign Up">
                     </div>
                 </form>
             </div>

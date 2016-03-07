@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package authentication;
+package register;
 
+import authentication.DebateUser;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -26,16 +27,14 @@ public class SignUpBean {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
-    public void addUser(String name, String pwd){       
+    public void createUser(String name, String pwd){       
         
         DebateUser newDebateUser = new DebateUser();
         newDebateUser.setUsername(name);
         newDebateUser.setPassword(pwd);
-        em.persist(newDebateUser);
         
-      
-        
-        
+        em.persist(newDebateUser); 
+       
                                    
     }
 }

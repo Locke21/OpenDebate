@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package authentication;
+package register;
 
 import debate.FrontController;
 import java.io.IOException;
@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,10 +29,26 @@ public class SignUpController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       System.out.println(request.getParameter("newUser"));
-       signUp.addUser(request.getParameter("newUser"), request.getParameter("newPassword"));
+       String username = request.getParameter("newUser"); 
+       String password = request.getParameter("newPassword");
+       String password2 = request.getParameter("newPassword2");
+
+       if(!username.isEmpty() && !password.isEmpty() && !password2.isEmpty()){
+           try{
+               signUp.createUser(username,password);
+           }
+           catch(Exception ex){
+               response.sendError(HttpServletResponse.SC_BAD_REQUEST, "The username you wanted to create already exist.");
+               
+           }
+           response.sendRedirect(FrontController.FRONT_PATH);
+       }
+       else{
+               response.sendError(HttpServletResponse.SC_BAD_REQUEST, "You sent wrong parameters to our database!");
+       }
        
-       response.sendRedirect(FrontController.FRONT_PATH);
+       
+       
     }
 
 
