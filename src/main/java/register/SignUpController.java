@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 /**
  *
  * @author fabi
@@ -33,32 +32,21 @@ public class SignUpController extends HttpServlet {
         String username = request.getParameter("newUser");
         String password = request.getParameter("newPassword");
         String password2 = request.getParameter("newPassword2");
-        System.out.println("neuer Name:"+username);
-        System.out.println("neues PW:"+password);
-        System.out.println("neues PW2:"+password2);
+        System.out.println("neuer Name:" + username);
+        System.out.println("neues PW:" + password);
+        System.out.println("neues PW2:" + password2);
 
         if (!username.isEmpty() && !password.isEmpty() && !password2.isEmpty()) {
 
             if (signUp.createUser(username, password)) {
                 PrintWriter out = response.getWriter();
-                
-                response.setContentType("text/json");
-                out.write("{"
-                        + "errorMsg: '',"
-                        + "path:"+ FrontController.FRONT_PATH +"}");
-                
-            } else {
-               
-                PrintWriter out = response.getWriter();
-                
                 response.setContentType("text/plain");
-                out.write("error!");
-                //response.setStatus(402);
-                
-                
-                
-                
-                
+                out.write(""+FrontController.FRONT_PATH);
+                out.flush();
+                out.close();
+
+            } else {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST);
             }
 
         } else {

@@ -63,7 +63,6 @@ $('document').ready(function () {
             password2.val("");
             validated = false;
         } else {
-            alert("Created!");
             validated = true;
         }
 
@@ -78,17 +77,24 @@ $('document').ready(function () {
                 newPassword: password,
                 newPassword2: password2,
                 action: "signUp"
-            },function(data){
-                console.log(data);
-            });/*.fail(function (data) {
-                $('#testSpan').text(data);
-                alert(data);
-            }).done(function(data){
-                window.location.assign('/OpenDebate/pages/');
-                
-              $('#testSpan').text(data);
+            }).fail(function () {
+                $('#testSpan').html("The username already exist..");
+                $('#userNameField').addClass('has-error');
+                $('#newUser').bind('input', function () {
+
+                    if ($(this).val() === "") {
+                        $('#userNameField').addClass('has-error');
+
+                    } else {
+                        $('#userNameField').removeClass('has-error');
+
+                    }
+                });
+            }).done(function (data) {
+                window.location.assign(data);
+
             });
-            */
+
         }
 
 
