@@ -32,9 +32,7 @@ public class SignUpController extends HttpServlet {
        String username = request.getParameter("newUser"); 
        String password = request.getParameter("newPassword");
        String password2 = request.getParameter("newPassword2");
-       System.out.println(username);
-       System.out.println("mein PW:"+password);
-       
+
        if(!username.isEmpty() && !password.isEmpty() && !password2.isEmpty()){
            try{
                signUp.createUser(username,password);
@@ -43,6 +41,7 @@ public class SignUpController extends HttpServlet {
                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "The username you wanted to create already exist.");
                
            }
+           response.sendRedirect(FrontController.FRONT_PATH);
        }
        else{
                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "You sent wrong parameters to our database!");

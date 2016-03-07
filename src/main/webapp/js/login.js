@@ -21,21 +21,27 @@ $('#newUser').bind('input', function() {
 
     }
 });
-$('#newPassword').bind('input', function() {
+$('#newPasswordField').bind('input', function() {
 
     if($(this).val()===""){
-        $('#passwordField').addClass('has-error');
+        $('#newPassword').addClass('has-error');
 
     }else{
-        $('#passwordField').removeClass('has-error');
+        $('#newPassword').removeClass('has-error');
+
+    }
+});
+$('#newPassword2Field').bind('input', function() {
+
+    if($(this).val()===""){
+        $('#newPassword2').addClass('has-error');
+
+    }else{
+        $('#newPassword2').removeClass('has-error');
 
     }
 });
 
-
-    $('#newUser').bind('input', function() {
-        $(this).next().stop(true, true).fadeIn(0).html('[input event fired!]: ' + $(this).val()).fadeOut(2000);
-    });
 
 
     var user = document.forms["SignUp"]["newUser"].value;
