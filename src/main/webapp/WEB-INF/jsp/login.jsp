@@ -43,16 +43,16 @@
             </form>
 
             <div class="collapse" id="collapseExample">
-                <form id="signUp" onSubmit="return validateForm(); "action="/OpenDebate/pages" name="SignUp" method="post">
+                <form id="signUp" onSubmit="return validateForm();" action="/OpenDebate/pages" name="SignUp" method="post">
                     <div id="userNameField" class="form-group">
                         <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
-                        <span>${sessionScope.PostFailedMsg}</span>
+                        <span></span>
                     </div>
                    
-                    <div class="form-group">
+                    <div id="passwordField" class="form-group">
                         <input id="newPassword" class="form-control" type="password" name="newPassword" placeholder="Your Password">
                     </div>
-                    <div class="form-group">
+                    <div id="password2Field"class="form-group">
                         <input id="newPassword2" class="form-control" type="password" name="newPassword2" placeholder="Repeat Password">
                     </div>
                     <input type="hidden" name="action" value="signUp">

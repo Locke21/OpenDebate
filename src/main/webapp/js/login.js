@@ -9,22 +9,39 @@
 
 function validateForm() {
 $('#newUser').bind('input', function() {
-    $(this).next().stop(true, true).fadeIn(0).html('[input event fired!]: ' + $(this).val()).fadeOut(2000);
+   
+    if($(this).val()===""){
+        $('#userNameField').addClass('has-error');
+       
+    }else{
+        $('#userNameField').removeClass('has-error');
+        
+    }
+});
+$('#newPassword').bind('input', function() {
+   
+    if($(this).val()===""){
+        $('#passwordField').addClass('has-error');
+       
+    }else{
+        $('#passwordField').removeClass('has-error');
+        
+    }
 });
 
 
     var user = document.forms["SignUp"]["newUser"].value;
-    var input = document.getElementById("userNameField");
+    var userNameField = document.getElementById("userNameField");
     if (user === "") {
-        input.className = "has-error form-group";
+        userNameField.className = "has-error form-group";
         document.getElementById("newUser").className = "form-control";
         document.forms["SignUp"]["newUser"].placeholder = "Enter a username!";
-        return true;
+        return false;
     } else if (user !== "") {
 
         alert("Created!");
         return true;
     }
-    return true;
+    return false;
 }
 
