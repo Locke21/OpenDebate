@@ -47,11 +47,11 @@
                         <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
                         <span></span>
                     </div>
-                    <div class="form-group">
-                        <input id="newPassword" class="form-control" type="password" name="newPassword" placeholder="Your Password">
+                    <div id="newPassword" class="form-group">
+                        <input id="newPasswordField" class="form-control" type="password" name="newPassword" placeholder="Your Password">
                     </div>
-                    <div class="form-group">
-                        <input id="newPassword2" class="form-control" type="password" name="newPassword2" placeholder="Repeat Password">
+                    <div id="newPassword2" class="form-group">
+                        <input id="newPassword2Field" class="form-control" type="password" name="newPassword2" placeholder="Repeat Password">
                     </div>
                     <input type="hidden" name="action" value="signUp">
                     <div class="modal-footer">
