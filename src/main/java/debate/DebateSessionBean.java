@@ -9,8 +9,10 @@ import authentication.DebateUser;
 import java.util.Date;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.naming.InitialContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 
 /**
  *
@@ -27,23 +29,25 @@ public class DebateSessionBean {
     
     public Debate createDebate(DebateUser user, String topic, String description, 
                                                 String tags, Date closingDate)throws Exception{
-        if(closingDate.before(new Date())){
+        
+        if(user == null || topic == null || description == null || 
+                closingDate == null || closingDate.before(new Date()) ){
             throw new IllegalArgumentException();
         }
         
         Debate newDebate = new Debate();
         newDebate.setTopic(topic);
         newDebate.setDescription(description);
-        newDebate.setOwner(null);
+        newDebate.setOwner(user);
         newDebate.setIsOpen(true);
         newDebate.setClicks(0);
         newDebate.setCreationDate(new Date());
         newDebate.setClosingDate(closingDate);
         newDebate.setTags(tags);
         
-        em.getTransaction().begin();
+        
         em.persist(newDebate);
-        em.getTransaction().commit();
+        
         
         return newDebate;      
     }

@@ -34,17 +34,19 @@ public class LoginController extends HttpServlet {
             response.sendRedirect(FrontController.FRONT_PATH);
         }else{
         
-            String user = request.getParameter("user");
+            String username = request.getParameter("user");
             String pwd = request.getParameter("pwd");
             
-            if(pwd != null && user != null){
-                if(authenticator.authenticateClient(user,pwd)){
+            if(pwd != null && username != null){
+                DebateUser user = authenticator.authenticateClient(username,pwd);
+                
+                if(user != null){
                     
                     HttpSession session = request.getSession();
-                    session.setAttribute(AuthenticationBean.USERNAME_ATTRIBUTE, user);
+                    session.setAttribute(AuthenticationBean.USER_ATTRIBUTE, user);
                     session.setMaxInactiveInterval(30*60);
 
-                    Cookie userName = new Cookie(AuthenticationBean.USERNAME_ATTRIBUTE, user);
+                    Cookie userName = new Cookie(AuthenticationBean.USER_ATTRIBUTE, user.getUsername());
                     userName.setMaxAge(30*60);
                     response.addCookie(userName);
                 

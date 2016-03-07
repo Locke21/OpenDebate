@@ -25,6 +25,7 @@ public class FrontController extends HttpServlet {
     private static final String ACTION_LOGIN = "login";
     private static final String ACTION_SIGNUP = "signUp";
     private static final String ACTION_LOGOUT = "logout";
+    private static final String ACTION_DEBATE = DebateController.CONTEXT_NAME;
     
     public static final String PAGES_PREFIX = "/WEB-INF/jsp";
     public static final String FRONT_PATH = "/OpenDebate/pages/";
@@ -65,6 +66,9 @@ public class FrontController extends HttpServlet {
                     break;
                 case ACTION_SIGNUP:
                     getServletContext().getRequestDispatcher("/servlets/SignUpController").forward(req, resp);
+                    break;
+                case ACTION_DEBATE:
+                    getServletContext().getRequestDispatcher(DebateController.URL_PATTERN).forward(req, resp);
                     break;
                 default:
                     resp.sendError(HttpServletResponse.SC_BAD_REQUEST);

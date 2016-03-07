@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
 @LocalBean
 public class AuthenticationBean{
 
-    public static final String USERNAME_ATTRIBUTE = "user";    
+    public static final String USER_ATTRIBUTE = "user";    
     
     @PersistenceContext(unitName="OpenDebatePU") 
     private EntityManager em;
@@ -40,39 +40,36 @@ public class AuthenticationBean{
         //check if session is new
         if(!session.isNew()){
             
-            String username = (String) session.getAttribute(USERNAME_ATTRIBUTE);
+            DebateUser user = (DebateUser) session.getAttribute(USER_ATTRIBUTE);
             Cookie loginCookie = null;
             Cookie[] cookies = clientRequest.getCookies();
             //check if username is set in the session context
-            if(username != null && cookies != null){
+            if(user != null && cookies != null){
                 
                 //find username cookie
                 for(Cookie cookie : cookies){
-                    if(cookie.getName().equals(USERNAME_ATTRIBUTE)){
+                    if(cookie.getName().equals(USER_ATTRIBUTE)){
                         loginCookie = cookie;
                         break;
                     }
                 }
                 if(loginCookie != null){
-                    isAuthenticated = loginCookie.getValue().equals(username);
+                    isAuthenticated = loginCookie.getValue().equals(user.getUsername());
                 }       
             }  
         }
         return isAuthenticated;
     }
     
-    /**
-     * 
-     * @param user
-     * @param pwd
-     * @return 
-     */
-    public boolean authenticateClient(String user, String pwd){
+/**
+ * 
+ * @param user
+ * @param pwd
+ * @return 
+ */
+    public DebateUser authenticateClient(String user, String pwd){
     
-        if(em == null){
-            System.out.println("is null");
-            return false;
-        }
+        
         List<DebateUser> users = em.createQuery("SELECT u "
                                         + "FROM DebateUser u "
                                         + "WHERE u.username = :username AND u.password = :password")
@@ -80,8 +77,10 @@ public class AuthenticationBean{
                               .setParameter("password", pwd)
                               .getResultList();
                 
-        System.out.println(users);
-        return users.size() == 1;
+        if(users.size() == 1)
+            return users.get(0);
+        else
+            return null;
         
     }
     
