@@ -43,10 +43,10 @@
             </form>
 
             <div class="collapse" id="collapseExample">
-                <form id="signUp" onSubmit="return validateForm();" action="/OpenDebate/pages" name="SignUp" method="post">
+                <form id="signUp" name="SignUp">
                     <div id="userNameField" class="form-group">
                         <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
-                        <span></span>
+                        <span id="testSpan"></span>
                     </div>
 
                     <div id="newPassword" class="form-group">
@@ -59,7 +59,7 @@
                     <input type="hidden" name="action" value="signUp">
                     <div class="modal-footer">
 
-                        <input class="btn-success btn" type="submit" value="Sign Up">
+                        <input class="btn-success btn" id="submitBtn" type="button" value="Sign Up">
                     </div>
                 </form>
             </div>
