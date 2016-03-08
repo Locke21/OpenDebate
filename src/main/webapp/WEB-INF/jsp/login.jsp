@@ -37,12 +37,13 @@
                 </div>
                 <input type="hidden" name="action" value="login">
                 <div class="modal-footer">
-                    <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Not a Member yet?</a>
+                    <span id="infoSpan"></span>
+                    <a href="#collapseSignUp" id="signUpLink" data-toggle="collapse" aria-expanded="false" aria-controls="collapseSignUp">Not a Member yet?</a>
                     <input class="btn-default btn" type="submit" value="Login">
                 </div>
             </form>
 
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="collapseSignUp">
                 <form id="signUp" name="SignUp">
                     <div id="userNameField" class="form-group">
                         <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">

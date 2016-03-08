@@ -31,3 +31,11 @@ body{
     margin-top: 20px;
     margin-bottom: 40px;
 }
+.createdSuccessfully{
+    color: #488C2A;
+    font-weight: bolder;
+    
+}
+.modal-footer{
+    line-height: 2.4;
+}

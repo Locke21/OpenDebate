@@ -91,8 +91,14 @@ $('document').ready(function () {
                     }
                 });
             }).done(function (data) {
-                window.location.assign(data);
-
+                // window.location.assign(data);
+                $('#collapseSignUp').collapse('toggle');
+                $('#newUser').val("");
+                $('a').remove('#signUpLink');
+                $('#newPasswordField').val("");
+                $('#newPassword2Field').val("");
+                $('#infoSpan').addClass('createdSuccessfully');
+                $('#infoSpan').html("The user was created successfully!");
             });
 
         }
