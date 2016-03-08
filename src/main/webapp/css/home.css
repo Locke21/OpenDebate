@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 7, 2016, 10:59:02 AM
+    Author     : D062572
+*/
+
+.logoutBtn:hover{
+    
+    background-color: #EC8C8C;
+    
+}
+
+.logoutBtn{
+    transition: all 0.7s ease 0s;
+}
+
+.openDebateNav{
+    
+    border-top: 3px solid #488C2A;
+    
+}
+
+.openDebateNavTabs{
+    
+    
+    outline: none !important;
+    
+}
+
+.debateBox{
+       
+    margin-top: 25px;
+    border: 1px solid grey;
+    border-radius: 3px !important;
+    background-color: #488C2A;
+}
+
+.debateBox:hover{
+    box-shadow: 0px 0px 5px grey;
+    transition: all 0.5s ease 0s;
+    
+}
+
+.debateTitle{
+    
+    color: white;
+    font-size: 20pt;
+    text-shadow: 1px darkgray;
+    text-align: left;
+    height: 100%;
+    vertical-align: central;
+
+}
+
+.debateInfo{
+    
+    background-color: #F8F8F8;
+    color: darkgray;
+    font-size: 14pt;
+    text-align: center;
+    
+}

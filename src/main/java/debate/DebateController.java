@@ -61,7 +61,7 @@ public class DebateController extends HttpServlet {
                                             (String) request.getParameter(ATTR_TOPIC), 
                                             (String) request.getParameter(ATTR_DESC),
                                             (String) request.getParameter(ATTR_TAGS),
-                                            new SimpleDateFormat("dd.mm.yyyy").parse((String) request.getParameter(ATTR_DATE)));
+                                            new SimpleDateFormat("dd.MM.yyyy").parse((String) request.getParameter(ATTR_DATE)));
                     break;
                 case COMMAND_READ:
                     break;

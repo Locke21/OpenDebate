@@ -6,77 +6,69 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>${sessionScope.user.getUsername()} - Home</title>
-        <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap.css">
-        <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
-        <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
-        
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="."><img style="max-width: 400px; height: 25px" src="/OpenDebate/img/logo_open_debate.png"/></a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html> 
+
+<div class="container mainbox">
+    <div class="row">
+        <div class="col-lg8">
+            <ul class="nav nav-tabs openDebateNavTabs">
+                <li class="active"><a data-toggle="tab" href="#MyDebates">My debates</a></li>
+                <li><a data-toggle="tab" href="#HotTopics">Hot topics</a></li>
+                <li><a data-toggle="tab" href="#Participations">Participations</a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="MyDebates" class="tab-pane fade in active">
+                  <div class="container-fluid">
+                    <h3>Overview of your Debates</h3>          
+                    <form action="." method="get">
+                      <input type="hidden" name="content" value="NewDebate">
+                      <input class="btn btn-success"type="submit" value="New Debate">
                     </form>
-                    
-                    <form class="navbar-form navbar-right" action="." method="post">
-                        <div class="form-group">
-                            <input type="hidden" name="action" value="logout">
-                            <button class="btn btn-default"type="submit">
-                                <i class="glyphicon glyphicon-off"></i>
+
+                    <div class="row debateBox">
+                        <div class="col-lg-9 debateTitle">
+                            Thats the topic of a really interesting debate!
                         </div>
-                    </form>
-                    <p class="navbar-text navbar-right">Hello ${sessionScope.user.getUsername()}</p>
-                </div>
-            </div>
-        </nav>
-        <div class="container mainbox">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2>Create debate</h2>
-                    <form action="." method="post">
-                        <div class="form-group">
-                          
-                            <input type="hidden" name="action" value="debate">
-                            <input type="hidden" name="command" value="create">
-                            <input class="form-control" type="text" name="topic" placeholder="Topic">
-                            <input class="form-control" type="text" name="description" placeholder="Description">
-                            <input class="form-control" type="text" name="tags" placeholder="Tags">
-                            <input class="form-control" type="date" name="closingDate" placeholder="1.1.2017">
-                            <input class="btn btn-default"type="submit" value="Create">
+                        <div class="col-lg-3 debateInfo">
+                            <div>
+                                797 Clicks
+                            </div>
+                            <div>
+                                82109 Comments
+                            </div>
                         </div>
-                    </form>
-                </div>
-                <div class="col-lg-6">
-                    <h2>Create comment</h2>
-                    <form action="." method="post">
-                        <div class="form-group">
-                            <input class="form-control" type="text" name="debateId" placeholder="DebateID">
-                            <input class="form-control" type="text" name="comment" placeholder="comment">
-                            <input type="hidden" name="action" value="logout">
-                            <input class="btn btn-default"type="submit" value="Create">
+                    </div>
+
+                    <c:forEach items="${requestScope.userDebates}" var="userDebate">
+                        <div>
+                            <h4>${userDebate.getTopic()}</h4>
+                            <p>${userDebate.getDescription()}</p>
+                            <p>Clicks: ${userDebate.getClicks()}</p>
                         </div>
-                    </form>
-                </div>
+                    </c:forEach>
+                  </div>
+              </div>
+              <div id="HotTopics" class="tab-pane fade">
+                <h3>Menu 1</h3>
+                <p>Some content in menu 1.</p>
+              </div>
+              <div id="Participations" class="tab-pane fade">
+                <h2>Create comment</h2>
+                <form action="." method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="debateId" placeholder="DebateID">
+                        <input class="form-control" type="text" name="comment" placeholder="comment">
+                        <input type="hidden" name="action" value="logout">
+                        <input class="btn btn-default"type="submit" value="Create">
+                    </div>
+                </form>
+              </div>
             </div>
         </div>
+
+    </div>
+</div>
         
-    </body>
-</html>
+
