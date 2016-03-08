@@ -25,9 +25,8 @@
     </head>
     <body class="center-block">
         <div class="container mainbox">
-
-
             <img class="center-block logo" src="/OpenDebate/img/logo_open_debate.png" alt="logo"/>
+            <span class="loginFailed">${sessionScope.errorMsg}</span>
             <form action="/OpenDebate/pages" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" name="user" placeholder="Username">
@@ -37,16 +36,16 @@
                 </div>
                 <input type="hidden" name="action" value="login">
                 <div class="modal-footer">
-                    <a href="#collapseExample" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Not a Member yet?</a>
+                    <span id="infoSpan"></span>
+                    <a href="#collapseSignUp" id="signUpLink" data-toggle="collapse" aria-expanded="false" aria-controls="collapseSignUp">Not a Member yet?</a>
                     <input class="btn-default btn" type="submit" value="Login">
                 </div>
             </form>
 
-            <div class="collapse" id="collapseExample">
-                <form id="signUp" onSubmit="return validateForm();" action="/OpenDebate/pages" name="SignUp" method="post">
+            <div class="collapse" id="collapseSignUp">
+                <form id="signUp" name="SignUp">
                     <div id="userNameField" class="form-group">
-                        <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
-                        <span></span>
+                        <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">                        
                     </div>
 
                     <div id="newPassword" class="form-group">
@@ -58,8 +57,8 @@
                     </div>
                     <input type="hidden" name="action" value="signUp">
                     <div class="modal-footer">
-
-                        <input class="btn-success btn" type="submit" value="Sign Up">
+                        <span id="infoSpanSignUp"></span>
+                        <input class="btn-success btn" id="submitBtn" type="button" value="Sign Up">
                     </div>
                 </form>
             </div>
