@@ -9,9 +9,9 @@ and open the template in the editor.
 */
 
 .logoutBtn:hover{
-    
+
     background-color: #EC8C8C;
-    
+
 }
 
 .logoutBtn{
@@ -19,20 +19,20 @@ and open the template in the editor.
 }
 
 .openDebateNav{
-    
+
     border-top: 3px solid #488C2A;
-    
+
 }
 
 .openDebateNavTabs{
-    
-    
+
+
     outline: none !important;
-    
+
 }
 
 .debateBox{
-       
+
     margin-top: 25px;
     border: 1px solid grey;
     border-radius: 3px !important;
@@ -42,25 +42,45 @@ and open the template in the editor.
 .debateBox:hover{
     box-shadow: 0px 0px 5px grey;
     transition: all 0.5s ease 0s;
-    
+
 }
 
 .debateTitle{
-    
+
     color: white;
     font-size: 20pt;
     text-shadow: 1px darkgray;
-    text-align: left;
+    text-align: center;
     height: 100%;
     vertical-align: central;
 
 }
 
 .debateInfo{
-    
+
     background-color: #F8F8F8;
     color: darkgray;
     font-size: 14pt;
-    text-align: center;
-    
+    text-align: left;
+
+}
+.submit-span{
+    cursor: pointer;
+    float: right;
+}
+.header > h3,
+.header > form{    
+    display: inline;    
+}
+.header{
+    margin-top: 20px;
+    border-bottom: 1px solid rgba(72, 140, 42, 0.21);
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+.header > form > span > i{
+    line-height: 2.2;
+    padding-right: 5px;
+    color:  rgb(72, 140, 42);
+    font-size: large;
 }

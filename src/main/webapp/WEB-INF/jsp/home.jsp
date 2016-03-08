@@ -19,56 +19,93 @@
             </ul>
 
             <div class="tab-content">
-              <div id="MyDebates" class="tab-pane fade in active">
-                  <div class="container-fluid">
-                    <h3>Overview of your Debates</h3>          
-                    <form action="." method="get">
-                      <input type="hidden" name="content" value="NewDebate">
-                      <input class="btn btn-success"type="submit" value="New Debate">
+                <div id="MyDebates" class="tab-pane fade in active">
+                    <div class="container">
+                        <div class="header">
+                            <h3>Overview of your Debates</h3>          
+                            <form action="." method="get">
+                                <input type="hidden" name="content" value="NewDebate">
+                                <span class="submit-span"><i class="glyphicon glyphicon-plus-sign"></i></span>
+                            </form>
+                        </div>
+                        
+                        <div class="row ">
+                            <div class="col-md-5">
+                                <div class="debateBox debateTitle">Topic1</div>
+                                <div class="debateInfo">Test</div>
+                            </div>
+                            <div class="col-md-5 col-md-offset-2">
+                                <div class="debateBox debateTitle">Topic2</div>
+                                <div class="debateInfo">
+                                    Comments: 32<br>
+                                    Views: 100K<br>
+                                    Owner: philgras
+                                 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="debateBox debateTitle">Topic1</div>
+                                <div class="debateInfo">Test</div>
+                            </div>
+                            <div class="col-md-5 col-md-offset-2">
+                                <div class="debateBox debateTitle">Topic2</div>
+                                <div class="debateInfo">
+                                    Comments: 32<br>
+                                    views: 100K
+                                 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="debateBox debateTitle">Topic1</div>
+                                <div class="debateInfo">Test</div>
+                            </div>
+                            <div class="col-md-5 col-md-offset-2">
+                                <div class="debateBox debateTitle">Topic2</div>
+                                <div class="debateInfo">
+                                    Comments: 32<br>
+                                    views: 100K
+                                 
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <c:forEach items="${requestScope.userDebates}" var="userDebate">
+                            <div>
+                                <h4>${userDebate.getTopic()}</h4>
+                                <p>${userDebate.getDescription()}</p>
+                                <p>Clicks: ${userDebate.getClicks()}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+                <div id="HotTopics" class="tab-pane fade">
+                    <h3>Menu 1</h3>
+                    <p>Some content in menu 1.</p>
+                </div>
+                <div id="Participations" class="tab-pane fade">
+                    <h2>Create comment</h2>
+                    <form action="." method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="debateId" placeholder="DebateID">
+                            <input class="form-control" type="text" name="comment" placeholder="comment">
+                            <input type="hidden" name="action" value="logout">
+                            <input class="btn btn-default"type="submit" value="Create">
+                        </div>
                     </form>
-
-                    <div class="row debateBox">
-                        <div class="col-lg-9 debateTitle">
-                            Thats the topic of a really interesting debate!
-                        </div>
-                        <div class="col-lg-3 debateInfo">
-                            <div>
-                                797 Clicks
-                            </div>
-                            <div>
-                                82109 Comments
-                            </div>
-                        </div>
-                    </div>
-
-                    <c:forEach items="${requestScope.userDebates}" var="userDebate">
-                        <div>
-                            <h4>${userDebate.getTopic()}</h4>
-                            <p>${userDebate.getDescription()}</p>
-                            <p>Clicks: ${userDebate.getClicks()}</p>
-                        </div>
-                    </c:forEach>
-                  </div>
-              </div>
-              <div id="HotTopics" class="tab-pane fade">
-                <h3>Menu 1</h3>
-                <p>Some content in menu 1.</p>
-              </div>
-              <div id="Participations" class="tab-pane fade">
-                <h2>Create comment</h2>
-                <form action="." method="post">
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="debateId" placeholder="DebateID">
-                        <input class="form-control" type="text" name="comment" placeholder="comment">
-                        <input type="hidden" name="action" value="logout">
-                        <input class="btn btn-default"type="submit" value="Create">
-                    </div>
-                </form>
-              </div>
+                </div>
             </div>
         </div>
 
     </div>
 </div>
-        
+
 

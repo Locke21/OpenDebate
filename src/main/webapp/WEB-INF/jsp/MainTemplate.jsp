@@ -14,6 +14,7 @@
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/home.css">
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
+        <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
         
     </head>
     <body>
