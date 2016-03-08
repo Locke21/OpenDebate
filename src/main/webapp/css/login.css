@@ -39,3 +39,12 @@ body{
 .modal-footer{
     line-height: 2.4;
 }
+.error{
+    color: #a94442;
+    font-weight: bolder;
+}
+.loginFailed{
+    padding: 5px;
+    color: #a94442;
+    font-weight: bolder;
+}

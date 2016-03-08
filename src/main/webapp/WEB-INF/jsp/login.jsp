@@ -25,9 +25,8 @@
     </head>
     <body class="center-block">
         <div class="container mainbox">
-
-
             <img class="center-block logo" src="/OpenDebate/img/logo_open_debate.png" alt="logo"/>
+            <span class="loginFailed">${sessionScope.errorMsg}</span>
             <form action="/OpenDebate/pages" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" name="user" placeholder="Username">
@@ -46,8 +45,7 @@
             <div class="collapse" id="collapseSignUp">
                 <form id="signUp" name="SignUp">
                     <div id="userNameField" class="form-group">
-                        <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">
-                        <span id="testSpan"></span>
+                        <input id="newUser" class="form-control" type="text" name="newUser" placeholder="Your Username">                        
                     </div>
 
                     <div id="newPassword" class="form-group">
@@ -59,7 +57,7 @@
                     </div>
                     <input type="hidden" name="action" value="signUp">
                     <div class="modal-footer">
-
+                        <span id="infoSpanSignUp"></span>
                         <input class="btn-success btn" id="submitBtn" type="button" value="Sign Up">
                     </div>
                 </form>

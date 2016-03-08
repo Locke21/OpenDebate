@@ -78,7 +78,7 @@ $('document').ready(function () {
                 newPassword2: password2,
                 action: "signUp"
             }).fail(function () {
-                $('#testSpan').html("The username already exist..");
+                $('#infoSpanSignUp').addClass('error').html("The username already exists!");
                 $('#userNameField').addClass('has-error');
                 $('#newUser').bind('input', function () {
 
@@ -87,11 +87,10 @@ $('document').ready(function () {
 
                     } else {
                         $('#userNameField').removeClass('has-error');
-
+                        $('#infoSpanSignUp').html("");
                     }
                 });
-            }).done(function (data) {
-                // window.location.assign(data);
+            }).done(function () {
                 $('#collapseSignUp').collapse('toggle');
                 $('#newUser').val("");
                 $('a').remove('#signUpLink');

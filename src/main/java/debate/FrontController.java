@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author D062572
@@ -41,6 +42,7 @@ public class FrontController extends HttpServlet {
             getServletContext().getRequestDispatcher(PAGES_PREFIX+"/home.jsp")
                                 .forward(request,response);
         }else{
+            
             getServletContext().getRequestDispatcher(PAGES_PREFIX+"/login.jsp")
                                 .forward(request,response);                      
         }

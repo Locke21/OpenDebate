@@ -33,15 +33,17 @@ public class LoginController extends HttpServlet {
         if(authenticator.isClientAuthenticated(request)){
             response.sendRedirect(FrontController.FRONT_PATH);
         }else{
-        
+            
+            HttpSession session = request.getSession();        
             String user = request.getParameter("user");
             String pwd = request.getParameter("pwd");
             
             if(pwd != null && user != null){
                 if(authenticator.authenticateClient(user,pwd)){
                     
-                    HttpSession session = request.getSession();
+                    
                     session.setAttribute(AuthenticationBean.USERNAME_ATTRIBUTE, user);
+                    
                     session.setMaxInactiveInterval(30*60);
 
                     Cookie userName = new Cookie(AuthenticationBean.USERNAME_ATTRIBUTE, user);
@@ -49,11 +51,15 @@ public class LoginController extends HttpServlet {
                     response.addCookie(userName);
                 
                 }
-                response.sendRedirect(FrontController.FRONT_PATH);   
+                session.setAttribute("errorMsg", "Login failed! Username or password are incorrect!");
+                
+                response.sendRedirect(FrontController.FRONT_PATH);
             }else{
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST);
             } 
         }
     }
+    
+    
 
 }
