@@ -24,6 +24,9 @@
 
     </head>
     <body class="center-block">
+        <div id="dialogbox" style="display: none; position: fixed; z-index: 10;">
+            <div id="dialogcontent"></div>
+        </div>
         <div class="container mainbox">
 
 
