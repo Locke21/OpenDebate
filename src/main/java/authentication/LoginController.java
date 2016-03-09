@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,13 +37,15 @@ public class LoginController extends HttpServlet {
         
             String username = request.getParameter("user");
             String pwd = request.getParameter("pwd");
+            HttpSession session = request.getSession();
+            
             
             if(pwd != null && username != null){
                 DebateUser user = authenticator.authenticateClient(username,pwd);
                 
                 if(user != null){
                     
-                    HttpSession session = request.getSession();
+                    
                     session.setAttribute(AuthenticationBean.USER_ATTRIBUTE, user);
                     session.setMaxInactiveInterval(30*60);
 
@@ -51,6 +54,7 @@ public class LoginController extends HttpServlet {
                     response.addCookie(userName);
                 
                 }
+                session.setAttribute("errorMsg", "The username or password is incorrect!");
                 response.sendRedirect(FrontController.FRONT_PATH);   
             }else{
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST);
