@@ -29,9 +29,9 @@ public class FrontController extends HttpServlet {
     private static final String ACTION_LOGOUT = "logout";
 
     private static final String ACTION_DEBATE = DebateController.CONTEXT_NAME;
-    
+
     private static final String CONTENT_PARAMETER = "content";
-    
+
     public static final String PAGES_PREFIX = "/WEB-INF/jsp";
     public static final String FRONT_PATH = "/OpenDebate/pages/";
 
@@ -42,18 +42,15 @@ public class FrontController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
-       
-        if(authenticator.isClientAuthenticated(request)){
-            
+        if (authenticator.isClientAuthenticated(request)) {
+
             request.setAttribute(CONTENT_PARAMETER, getJSPName(request.getParameter(CONTENT_PARAMETER)));
-            
-            
-            getServletContext().getRequestDispatcher(PAGES_PREFIX+"/MainTemplate.jsp")
-                                .forward(request,response);
-        }else{
-            getServletContext().getRequestDispatcher(PAGES_PREFIX+"/login.jsp")
-                                .forward(request,response);                      
+
+            getServletContext().getRequestDispatcher(PAGES_PREFIX + "/MainTemplate.jsp")
+                    .forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher(PAGES_PREFIX + "/login.jsp")
+                    .forward(request, response);
 
         }
 
@@ -90,25 +87,29 @@ public class FrontController extends HttpServlet {
         }
 
     }
-    private String getJSPName(String content){
-        
+
+    private String getJSPName(String content) {
+
         String JSPname = "home.jsp";
-        
-        if(content != null){
-        
-            switch(content){
-            
+
+        if (content != null) {
+
+            switch (content) {
+
                 case "NewDebate":
-                   JSPname = "NewDebate.jsp";
-                   break;
-                default:
-                   
+                    JSPname = "NewDebate.jsp";
                     break;
-            
+                case "Debate":
+                    JSPname = "Debate.jsp";
+                    break;
+                default:
+
+                    break;
+
             }
-        
+
         }
-        
+
         return JSPname;
     }
 

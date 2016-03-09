@@ -33,24 +33,25 @@ and open the template in the editor.
 
 .debateBox{
 
-    margin-top: 25px;
-    border: 1px solid grey;
-    border-radius: 3px !important;
-    background-color: #488C2A;
+    margin-top: 35px;
+    border-left: 1px solid grey;
+    padding-left: 10px;
+    padding-top: 5px;
 }
 
 .debateBox:hover{
-    box-shadow: 0px 0px 5px grey;
-    transition: all 0.5s ease 0s;
-
+   
+transition: all 0.4s ease 0s;
+border-left: 10px solid #488C2A;
+cursor: pointer;
 }
 
 .debateTitle{
 
-    color: white;
+    color: green;
     font-size: 20pt;
     text-shadow: 1px darkgray;
-    text-align: center;
+    text-align: left;
     height: 100%;
     vertical-align: central;
 
@@ -58,9 +59,8 @@ and open the template in the editor.
 
 .debateInfo{
 
-    background-color: #F8F8F8;
     color: darkgray;
-    font-size: 14pt;
+    font-size: 10pt;
     text-align: left;
 
 }
@@ -74,7 +74,7 @@ and open the template in the editor.
 }
 .header{
     margin-top: 20px;
-    border-bottom: 1px solid rgba(72, 140, 42, 0.21);
+    border-bottom: 1px solid #ddd;
     padding-left: 5px;
     padding-bottom: 10px;
 }
@@ -83,4 +83,13 @@ and open the template in the editor.
     padding-right: 5px;
     color:  rgb(72, 140, 42);
     font-size: large;
+}
+.debateMonth{
+    margin-top: 25px;
+    color: grey;
+    font-size: 15pt;
+    text-shadow: 1px darkgray;
+    text-align: center;
+    height: 100%;
+    vertical-align: central;
 }

@@ -8,5 +8,10 @@ $('document').ready(function(){
     $('.submit-span').on('click', function() {
   $(this).closest('form').submit();
 });
+
+$('.debateBox').on('click', function(){
+   // $.get("/OpenDebate/pages",{content: "getDebate"});
+    window.location.assign(".?content=Debate");
+});
 });
 
