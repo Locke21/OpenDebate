@@ -24,9 +24,6 @@
 
     </head>
     <body class="center-block">
-        <div id="dialogbox" style="display: none; position: fixed; z-index: 10;">
-            <div id="dialogcontent"></div>
-        </div>
         <div class="container mainbox">
             <img class="center-block logo" src="/OpenDebate/img/logo_open_debate.png" alt="logo"/>
             <span class="loginFailed">${sessionScope.errorMsg}</span>

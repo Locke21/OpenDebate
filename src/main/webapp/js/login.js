@@ -53,11 +53,11 @@ $('document').ready(function () {
             document.forms["SignUp"]["newUser"].placeholder = "Enter a username!";
             validated = false;
         } else if (password.val() === "") {
-            alert("Password can't be empty!");
+            $('#infoSpanSignUp').addClass('error').html("Password can't be empty!");
             $("#newPassword").addClass("has-error");
             validated = false;
         } else if (password.val() !== password2.val()) {
-            alert("Password validation failed!");
+            $('#infoSpanSignUp').addClass('error').html("Password validation failed!");
             $("#newPassword").addClass("has-error");
             $("#newPassword2").addClass("has-error");
             password.val("");
@@ -97,8 +97,7 @@ $('document').ready(function () {
                 $('a').remove('#signUpLink');
                 $('#newPasswordField').val("");
                 $('#newPassword2Field').val("");
-                $('#infoSpan').addClass('createdSuccessfully');
-                $('#infoSpan').html("The user was created successfully!");
+                $('#infoSpan').addClass('createdSuccessfully').html("The user was created successfully!");
             });
 
         }
