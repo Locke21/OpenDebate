@@ -101,7 +101,10 @@ $('document').ready(function () {
             });
 
         }
-
-
+    });
+    $("#newUser, #newPasswordField, #newPassword2Field").keydown(function(e){
+        if(e.which == 13){
+            $('#submitBtn').click();
+        }
     });
 });
