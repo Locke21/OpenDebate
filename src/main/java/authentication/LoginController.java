@@ -51,7 +51,7 @@ public class LoginController extends HttpServlet {
                     response.addCookie(userName);
                 
                 }
-                session.setAttribute("errorMsg", "Login failed! Username or password are incorrect!");
+                session.setAttribute("errorMsg", "The username or password is incorrect!");
                 
                 response.sendRedirect(FrontController.FRONT_PATH);
             }else{

@@ -26,7 +26,7 @@
     <body class="center-block">
         <div class="container mainbox">
             <img class="center-block logo" src="/OpenDebate/img/logo_open_debate.png" alt="logo"/>
-            <span class="loginFailed">${sessionScope.errorMsg}</span>
+            <span class="loginFailed">${errorMsg}<% session.removeAttribute("errorMsg");%></span>
             <form action="/OpenDebate/pages" method="post">
                 <div class="form-group">
                     <input class="form-control" type="text" name="user" placeholder="Username">

@@ -42,6 +42,7 @@ body{
 .error{
     color: #a94442;
     font-weight: bolder;
+    
 }
 .loginFailed{
     padding: 5px;
