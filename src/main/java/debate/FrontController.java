@@ -63,7 +63,7 @@ public class FrontController extends HttpServlet {
         String action = req.getParameter(ACTION_PARAMETER);
         if (action == null) {
 
-            if (action == null) {
+            
 
                 resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
             } else {
@@ -93,7 +93,6 @@ public class FrontController extends HttpServlet {
 
             }
         }
-    }
 
     private String getJSPName(String content) {
 
