@@ -14,6 +14,6 @@ $('.debateBox').on('click', function(){
     window.location.assign(".?content=Debate");
 });
 
-$(".debateMonth, .col-md-10").stick_in_parent();
+$(".debateMonth").stick_in_parent();
 });
 

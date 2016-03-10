@@ -92,9 +92,10 @@ cursor: pointer;
     text-align: center;
     height: 100%;
     vertical-align: central;
+    
 }
-.debates{
-    overflow-x:hidden;
-    overflow-y:auto;
-    height: 150px;   
+.debates{   
+    position: relative;
+    
 }
+
