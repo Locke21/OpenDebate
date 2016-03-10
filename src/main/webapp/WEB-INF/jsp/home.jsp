@@ -59,8 +59,9 @@
                 <form action="." method="post">
                     <div class="form-group">
                         <input class="form-control" type="text" name="debateId" placeholder="DebateID">
-                        <input class="form-control" type="text" name="comment" placeholder="comment">
-                        <input type="hidden" name="action" value="logout">
+                        <input class="form-control" type="text" name="commentText" placeholder="comment">
+                        <input type="hidden" name="action" value="comment">
+                        <input type="hidden" name="command" value="create">
                         <input class="btn btn-default"type="submit" value="Create">
                     </div>
                 </form>

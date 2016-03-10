@@ -26,6 +26,7 @@ public class FrontController extends HttpServlet {
     private static final String ACTION_SIGNUP = "signUp";
     private static final String ACTION_LOGOUT = "logout";
     private static final String ACTION_DEBATE = DebateController.CONTEXT_NAME;
+    private static final String ACTION_COMMENT = CommentController.CONTEXT_NAME;
     
     private static final String CONTENT_PARAMETER = "content";
     
@@ -59,6 +60,7 @@ public class FrontController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         String action = req.getParameter(ACTION_PARAMETER);
+        System.out.println(action);
         if(action == null){
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }else{
@@ -76,6 +78,9 @@ public class FrontController extends HttpServlet {
                     break;
                 case ACTION_DEBATE:
                     getServletContext().getRequestDispatcher(DebateController.URL_PATTERN).forward(req, resp);
+                    break;
+                case ACTION_COMMENT:
+                    getServletContext().getRequestDispatcher(CommentController.URL_PATTERN).forward(req, resp);
                     break;
                 default:
                     resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
