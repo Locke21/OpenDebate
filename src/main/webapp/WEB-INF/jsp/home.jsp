@@ -29,175 +29,157 @@
                                 <span class="submit-span"><i class="glyphicon glyphicon-plus-sign"></i></span>
                             </form>
                         </div>
+                        <div class="">
+                            <div class="row debates">
+                                <div class="col-md-2 debateMonth">
+                                    Jan 2016
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
-                        <div class="row ">
-                            <div class="col-md-2">
-                                <div class="debateMonth">Jan 2016</div>
+                                        </div>
+                                    </div>
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Topic1</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
+
+                                        </div>
+                                    </div>
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Topic1</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
+
+                                        </div>
+                                    </div>
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Topic1</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
                             </div>
-                            <div class="col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="debateMonth">Feb 2016</div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
+                                        </div>
+                                    </div>
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Topic1</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
+
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="debateMonth">Feb 2016</div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
-                        </div>
-                        <div class="row ">
+                                        </div>
+                                    </div>
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Topic1</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Topic1</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="debateMonth">Feb 2016</div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
-                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Topic1</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
-                        <div class="row ">
-                            <div class="col-md-2">
-                                <div class="debateMonth">Jan 2016</div>
-                            </div>
-                            <div class="col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="debateMonth">Feb 2016</div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
-                        </div>
-                        <div class="row ">
+                                        </div>
+                                    </div>
+                                    <div class="debateBox">
+                                        <div class="debateTitle">Topic1</div>
+                                        <div class="debateInfo">
+                                            Comments: 32<br>
+                                            Views: 100K<br>
+                                            Owner: philgras
 
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Topic1</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-
-                        <div class="row ">
-                            <div class="col-md-2">
-                                <div class="debateMonth">Jan 2016</div>
-                            </div>
-                            <div class="col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row ">
-
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Topic1</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row ">
-                            <div class="col-md-2">
-                                <div class="debateMonth">Jan 2016</div>
-                            </div>
-                            <div class="col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row ">
-
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Topic1</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row ">
-                            <div class="col-md-2">
-                                <div class="debateMonth">Feb 2016</div>
-                            </div>
-                            <div class="col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Topic1</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row ">
-
-                            <div class="col-md-offset-2 col-md-10">
-                                <div class="debateBox">
-                                    <div class="debateTitle">Topic1</div>
-                                    <div class="debateInfo">
-                                        Comments: 32<br>
-                                        Views: 100K<br>
-                                        Owner: philgras
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
 
 
 
@@ -219,8 +201,9 @@
                     <form action="." method="post">
                         <div class="form-group">
                             <input class="form-control" type="text" name="debateId" placeholder="DebateID">
-                            <input class="form-control" type="text" name="comment" placeholder="comment">
-                            <input type="hidden" name="action" value="logout">
+                            <input class="form-control" type="text" name="commentText" placeholder="comment">
+                            <input type="hidden" name="action" value="comment">
+                            <input type="hidden" name="command" value="create">
                             <input class="btn btn-default"type="submit" value="Create">
                         </div>
                     </form>

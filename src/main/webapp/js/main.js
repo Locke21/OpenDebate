@@ -13,5 +13,7 @@ $('.debateBox').on('click', function(){
    // $.get("/OpenDebate/pages",{content: "getDebate"});
     window.location.assign(".?content=Debate");
 });
+
+$(".debateMonth, .col-md-10").stick_in_parent();
 });
 
