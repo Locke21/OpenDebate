@@ -52,5 +52,7 @@
         </nav>
                 
         <jsp:include page="${requestScope.content}"></jsp:include>
+        
+        <div class="ourFooter">© 2015-2016. All rights reserverd.</div>
     </body>
 </html>

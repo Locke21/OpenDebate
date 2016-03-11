@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : 10.03.2016, 17:36:15
     Author     : fabi
 */
+html,body{
+    height: 100%;
+}
 .genInfos{
     text-align: center;
     vertical-align: central;
@@ -21,8 +24,70 @@ and open the template in the editor.
 .commentBox{
     margin-top: 20px;
     padding: 10px;
-    background-color: lightgray;
+    margin-bottom: 60px;
+
 }
+.commentBox > .modal-body > .comment{
+    margin-top: 5px;
+    border-top: 1px solid rgb(222, 223, 231);
+    border-left: 1px solid rgb(222, 223, 231);
+    padding: 10px;
+    padding-bottom: 0;
+}
+.commentBox > .modal-body > .comment > .commentHeader{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: xx-small;
+
+} 
+.commentBox > .modal-body > .comment > .commentFooter{
+    margin-top: 10px;
+    font-size: smaller; 
+}
+
+.commentBox > .modal-body > .commentChild{
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid rgb(222, 223, 231);
+    border-left: 1px solid rgb(222, 223, 231);
+    padding: 10px;
+    padding-bottom: 0;
+}
+.commentBox > .modal-body > .commentChild > .commentHeader{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: xx-small;
+
+} 
+.addComment{
+    margin-bottom: 10px;
+    padding: 10px;
+    
+}
+.sendLayer{
+    float: right;
+}
+.commentBox > .modal-body > .commentChild > .commentFooter{
+    margin-top: 10px;
+    font-size: smaller; 
+}
+
+.addCommentChild{
+    padding: 5px;
+    border-left: 1px solid rgb(222, 223, 231);
+}
+
+
+#commentDate{
+    float: right;
+}
+#commentUser{
+    float:left;
+}
+
 .jumbotron{
     margin-bottom: 0 !important;
     border-top-right-radius: 5px;
@@ -36,5 +101,8 @@ and open the template in the editor.
     color: white;
     margin: 5px;
     border-radius: 10px;
-    
+
+}
+.debatesOuter{
+    margin-bottom: 60px;
 }
