@@ -5,11 +5,11 @@
     Author     : D062572
 --%>
 
-
+<%@page import="debate.FrontController" %>
+<%@page import="debate.DebateController" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html> 
-
 <div class="container mainbox">
     <div class="row">
         <div class="col-lg8">
@@ -25,180 +25,33 @@
                         <div class="header">
                             <h3>Overview of your Debates</h3>          
                             <form action="." method="get">
-                                <input type="hidden" name="content" value="NewDebate">
+                                <input type="hidden" name="<%=FrontController.ACTION_PARAMETER%>" value="<%=DebateController.CONTEXT_NAME%>">
+                                <input type="hidden" name="<%=DebateController.COMMAND_PARAMETER%>" value="<%=DebateController.GET_COMMAND_NEW_DEBATE%>">
                                 <span class="submit-span"><i class="glyphicon glyphicon-plus-sign"></i></span>
                             </form>
                         </div>
                         <div class="debatesOuter">
-                            <div class="row debates">
-                                <div class="col-md-2 debateMonth">
-                                    Mar 2016
+                            
+                            <c:forEach items="${requestScope.debates}" var="subdebates">
+                                <div class="row debates">
+                                    <div class="col-md-2 debateMonth">
+                                        ${subdebates.key}
+                                    </div>
+                                    <div class="col-md-10">
+                                        <c:forEach items="${subdebates.value}" var="debate">
+                                            <div class="debateBox">
+                                                <div class="debateTitle">${debate.getTopic()}</div>
+                                                <div class="debateInfo">
+                                                    Comments: 100<br>
+                                                    Views: ${debate.getClicks()}<br>
+                                                    Owner: ${debate.getOwner().getUsername()}
+                                                </div>
+                                            </div>                                      
+                                        </c:forEach>
+                                    </div>
                                 </div>
-                                <div class="col-md-10">
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                    </div>
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                               
-                                    
-                                </div>
-
-                            </div>
-                            <div class="row debates">
-                                <div class="col-md-2 debateMonth">
-                                    Feb 2016
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                    </div>
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                               
-                                    
-                                </div>
-
-                            </div>
-                            <div class="row debates">
-                                <div class="col-md-2 debateMonth">
-                                    Jan 2016
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                      <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                      <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                                      <div class="debateBox">
-                                        <div class="debateTitle">Why is OpenDebate the coolest thing on the Internet?</div>
-                                        <div class="debateInfo">
-                                            Comments: 32<br>
-                                            Views: 100K<br>
-                                            Owner: philgras
-
-                                        </div>
-                                        
-                                    </div>
-                               
-                                    
-                                </div>
-
-                            </div>
+                            </c:forEach>                                                                  
                         </div>
-
-
-
-                        <c:forEach items="${requestScope.userDebates}" var="userDebate">
-                            <div>
-                                <h4>${userDebate.getTopic()}</h4>
-                                <p>${userDebate.getDescription()}</p>
-                                <p>Clicks: ${userDebate.getClicks()}</p>
-                            </div>
-                        </c:forEach>
                     </div>
                 </div>
                 <div id="HotTopics" class="tab-pane fade">

@@ -7,6 +7,7 @@ package debate;
 
 import authentication.DebateUser;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.naming.InitialContext;
@@ -60,8 +61,15 @@ public class DebateSessionBean {
     
     }
     
-    public Debate getDebate(){
+    public List<Debate> getDebatesByUser(DebateUser user){
     
-        return null;
+        List<Debate> debates = em.createQuery("SELECT d "
+                                        + "FROM Debate d "
+                                        + "WHERE d.owner = :owner ORDER BY d.creationDate DESC")
+                              .setParameter("owner", user)
+                              .getResultList();
+        
+        
+        return debates;
     }
 }

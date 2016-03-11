@@ -11,7 +11,7 @@ $('document').ready(function(){
 
 $('.debateBox').on('click', function(){
    // $.get("/OpenDebate/pages",{content: "getDebate"});
-    window.location.assign(".?content=Debate");
+    window.location.assign(".?action=debate&command=getDebate&id="+this.id);
 });
 
 $(".debateMonth").stick_in_parent();

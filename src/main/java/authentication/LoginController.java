@@ -24,6 +24,10 @@ import javax.ejb.EJB;
  */
 @WebServlet(name = "LoginController", urlPatterns = {"/servlets/LoginController"})
 public class LoginController extends HttpServlet {
+    
+    public static final String URL_PATTERN = "/servlets/LoginController";
+    public static final String CONTEXT_NAME = "login";
+    
     @EJB
     private AuthenticationBean authenticator;
 
