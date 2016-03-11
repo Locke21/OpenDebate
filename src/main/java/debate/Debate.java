@@ -39,6 +39,22 @@ public class Debate implements Serializable {
     @Column(nullable=false)
     private boolean isOpen;
 
+    @Column(nullable=false)
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
+
+    private String Tags;
+    
+    @Temporal(TemporalType.DATE)
+    private Date closingDate;
+    
+    @Column(nullable=false)
+    private int clicks;
+    
+    
+    @ManyToOne(optional = false)
+    private DebateUser owner;
+    
     public String getTopic() {
         return topic;
     }
@@ -102,22 +118,6 @@ public class Debate implements Serializable {
     public void setOwner(DebateUser owner) {
         this.owner = owner;
     }
-    
-    @Column(nullable=false)
-    @Temporal(TemporalType.DATE)
-    private Date creationDate;
-
-    private String Tags;
-    
-    @Temporal(TemporalType.DATE)
-    private Date closingDate;
-    
-    @Column(nullable=false)
-    private int clicks;
-    
-    
-    @ManyToOne(optional = false)
-    private DebateUser owner;
 
     public Long getId() {
         return id;

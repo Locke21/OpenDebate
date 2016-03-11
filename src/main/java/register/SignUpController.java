@@ -23,6 +23,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "SignUpController", urlPatterns = {"/servlets/SignUpController"})
 public class SignUpController extends HttpServlet {
 
+    public static final String URL_PATTERN = "/servlets/SignUpController";
+    public static final String CONTEXT_NAME = "signUp";
+    
     @EJB
     private SignUpBean signUp;
 

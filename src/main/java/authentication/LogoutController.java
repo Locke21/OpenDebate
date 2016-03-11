@@ -21,6 +21,8 @@ import debate.FrontController;
 @WebServlet(name = "LogoutController", urlPatterns = {"/servlets/LogoutController"})
 public class LogoutController extends HttpServlet {
 
+    public static final String URL_PATTERN = "/servlets/LogoutController";
+    public static final String CONTEXT_NAME = "logout";
 
      /**
      * Handles the HTTP <code>POST</code> method.
