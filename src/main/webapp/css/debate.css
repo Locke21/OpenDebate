@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10.03.2016, 17:36:15
+    Author     : fabi
+*/
+.genInfos{
+    text-align: center;
+    vertical-align: central;
+    padding: 10px;
+    background-color: lightgray;
+}
+.mainInfos{
+    padding: 10px;
+    margin-top: 20px;
+    background-color: lightgray;
+}
+.commentBox{
+    margin-top: 20px;
+    padding: 10px;
+    background-color: lightgray;
+}
+.jumbotron{
+    margin-bottom: 0 !important;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.tags{
+    padding: 5px;
+    background-color: green;
+    color: white;
+    margin: 5px;
+    border-radius: 10px;
+    
+}

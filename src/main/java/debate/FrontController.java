@@ -29,7 +29,9 @@ public class FrontController extends HttpServlet {
     private static final String ACTION_LOGOUT = "logout";
 
     private static final String ACTION_DEBATE = DebateController.CONTEXT_NAME;
+
     private static final String ACTION_COMMENT = CommentController.CONTEXT_NAME;
+
 
     private static final String CONTENT_PARAMETER = "content";
 
@@ -94,7 +96,10 @@ public class FrontController extends HttpServlet {
             }
         }
 
-    private String getJSPName(String content) {
+
+    
+    private String getJSPName(String content){
+        
 
         String JSPname = "home.jsp";
 
@@ -103,8 +108,13 @@ public class FrontController extends HttpServlet {
             switch (content) {
 
                 case "NewDebate":
+
                     JSPname = "NewDebate.jsp";
                     break;
+                case "Debate":
+                    JSPname = "Debate.jsp";
+                    break;
+
                 default:
 
                     break;
