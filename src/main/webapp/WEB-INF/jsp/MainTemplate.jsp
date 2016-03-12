@@ -12,8 +12,11 @@
         <title>${sessionScope.user.getUsername()} - Home</title>
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/home.css">
+        <link tpye="text/css" rel="stylesheet" href="/OpenDebate/css/debate.css">
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
+        <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
+        <script type="text/javascript" src="/OpenDebate/js/libs/sticky-kit.min.js"></script>
         
     </head>
     <body>
@@ -49,5 +52,7 @@
         </nav>
                 
         <jsp:include page="${requestScope.content}"></jsp:include>
+        
+        <div class="ourFooter">© 2015-2016. All rights reserverd.</div>
     </body>
 </html>
