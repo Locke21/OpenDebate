@@ -66,11 +66,9 @@ public class CommentController extends HttpServlet {
                         parentCommentId = (Long) request.getSession().getAttribute(ATTR_PARENTCOMID);
 
                         if (parentCommentId == null) {
-                            //commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER), 
-                            //      (Debate) request.getSession().getAttribute(ATTR_DEBATE), request.getParameter(ATTR_COMMTEXT), parentCommentId);
                             commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
                                     Long.parseLong(request.getParameter(ATTR_DEBID)),
-                                    (String) request.getParameter(ATTR_COMMTEXT));
+                                    (String) request.getParameter(ATTR_COMMTEXT), (Long) request.getSession().getAttribute(ATTR_PARENTCOMID));
                         }
                         break;
                     case COMMAND_DELETE:
