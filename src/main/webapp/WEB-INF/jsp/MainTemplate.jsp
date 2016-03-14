@@ -32,14 +32,14 @@
                     <a class="navbar-brand" href="."><img style="max-width: 400px; height: 25px" src="/OpenDebate/img/logo_open_debate.png"/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <form class="navbar-form navbar-left" role="search">
+                    <div class="navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <input id="searchInput" type="text" class="form-control" placeholder="Search"
                                    data-toggle="popover" data-placement="bottom" title="Results" data-content=""/>
                         </div>
-                        <div id="searchContentWrapper" style="display: none">...</div>
+                       
                         
-                    </form>
+                    </div>
                     
                     <form class="navbar-form navbar-right" action="." method="post">
                         <div class="form-group">
