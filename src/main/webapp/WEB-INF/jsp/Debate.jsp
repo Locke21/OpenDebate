@@ -129,19 +129,10 @@
             <div class="addComment">
 
                 <div class="input-group">
-
-                    <form action="." method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="new comment..">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-send"></i></button>
-                            </span>
-                            <input type="hidden" name="action" value="comment">
-                            <input type="hidden" name="command" value="create">
-                        </div>
-                    </form>
-
-
+                    <input type="text" class="form-control" placeholder="new comment..">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-send"></i></button>
+                    </span>
                 </div>
 
 

@@ -33,7 +33,7 @@ public class CommentController extends HttpServlet {
     private static final String ATTR_DEBID = "debateId";
     private static final String ATTR_COMID = "comId";
     private static final String ATTR_COMMTEXT = "commentText";
-    private static final String ATTR_PARENTCOMID = "parentCommentId";
+    private static final String ATTR_PARENTCOMID = "commentParentId";
 
     private static final String ATTR_USER = "user";
     private static final String ATTR_DEBATE = "debate";
@@ -56,24 +56,21 @@ public class CommentController extends HttpServlet {
         try {
 
             String name = (String) request.getParameter(COMMAND);
+            short depth;
             Long parentCommentId;
 
             if (name != null) {
 
                 switch (name) {
                     case COMMAND_CREATE:
-                        Debate curDeb = (Debate) request.getSession().getAttribute(ATTR_DEBATE);
                         parentCommentId = (Long) request.getSession().getAttribute(ATTR_PARENTCOMID);
 
-                        if (curDeb != null && parentCommentId == null) {
+                        if (parentCommentId == null) {
                             //commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER), 
                             //      (Debate) request.getSession().getAttribute(ATTR_DEBATE), request.getParameter(ATTR_COMMTEXT), parentCommentId);
-//                            commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
-//                                    Long.parseLong(request.getParameter(ATTR_DEBID)),
-//                                    (String) request.getParameter(ATTR_COMMTEXT));
-                            commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER), 
-                                    curDeb.getId(), (String) request.getParameter(ATTR_COMMTEXT), 
-                                    parentCommentId);
+                            commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
+                                    Long.parseLong(request.getParameter(ATTR_DEBID)),
+                                    (String) request.getParameter(ATTR_COMMTEXT));
                         }
                         break;
                     case COMMAND_DELETE:
