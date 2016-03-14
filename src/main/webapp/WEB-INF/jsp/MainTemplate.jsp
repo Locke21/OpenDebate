@@ -34,9 +34,11 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input id="searchInput" type="text" class="form-control" placeholder="Search"
+                                   data-toggle="popover" data-placement="bottom" title="Results" data-content=""/>
                         </div>
-                        <button type="submit" class="btn btn-default">Go!</button>
+                        <div id="searchContentWrapper" style="display: none">...</div>
+                        
                     </form>
                     
                     <form class="navbar-form navbar-right" action="." method="post">

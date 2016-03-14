@@ -61,6 +61,12 @@ public class DebateSessionBean {
     
     }
     
+    public Debate getDebateById(Long id){
+    
+        Debate debates = em.find(Debate.class,id);
+        return debates;
+    }
+    
     public List<Debate> getDebatesByUser(DebateUser user){
     
         List<Debate> debates = em.createQuery("SELECT d "

@@ -33,6 +33,7 @@ public class FrontController extends HttpServlet {
     private static final String ACTION_DEBATE       = DebateController.CONTEXT_NAME;
     private static final String ACTION_COMMENT      = CommentController.CONTEXT_NAME;
     private static final String ACTION_HOME         = HomeController.CONTEXT_NAME;
+    private static final String ACTION_SEARCH       = SearchController.CONTEXT_NAME;
 
     public static final String PAGES_PREFIX         = "/WEB-INF/jsp";
     public static final String FRONT_PATH           = "/OpenDebate/pages/";
@@ -105,6 +106,9 @@ public class FrontController extends HttpServlet {
                 case ACTION_COMMENT:
                     getServletContext().getRequestDispatcher(CommentController.URL_PATTERN).forward(req, resp);
                     break;
+                case ACTION_SEARCH:
+                    getServletContext().getRequestDispatcher(SearchController.URL_PATTERN).forward(req, resp);
+                    break;   
                 default:
                     resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
                     break;

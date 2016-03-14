@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 jumbotron">
-            Debate-Title
+            <h3>${requestScope.debate.getTopic()}</h3>
         </div>
 
     </div>
@@ -31,8 +31,8 @@
                 Main Infos
             </div>
             <div class="modal-body">
-                <i class="glyphicon glyphicon-user"></i> MavenMarco</br>
-                <i class="glyphicon glyphicon-calendar"></i> 20.02.2016
+                <i class="glyphicon glyphicon-user"></i> ${requestScope.debate.getOwner().getUsername()}</br>
+                <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}
             </div>
         </div>
         <div class=" commentBox col-md-offset-1 col-md-7">
