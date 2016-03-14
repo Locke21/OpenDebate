@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col-md-10">
                                         <c:forEach items="${subdebates.value}" var="debate">
-                                            <div class="debateBox">
+                                            <div id="${debate.getId()}" class="debateBox">
                                                 <div class="debateTitle">${debate.getTopic()}</div>
                                                 <div class="debateInfo">
                                                     Comments: 100<br>

@@ -66,6 +66,8 @@ public class DebateController extends HttpServlet {
                                 .forward(request, response);
                     break;
                 case GET_COMMAND_GET_DEBATE:
+                    Long id =  Long.parseLong(request.getParameter("id"));
+                    request.setAttribute("debate", debateBean.getDebateById(id));
                     request.setAttribute(FrontController.INCL_PAGE_ATTR_NAME, "Debate.jsp");
                     getServletContext().getRequestDispatcher(FrontController.TEMPLATE_PAGE)
                                 .forward(request, response);
