@@ -2,6 +2,7 @@ package debate;
 
 
 import authentication.DebateUser;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -41,13 +44,13 @@ public class Comment {
     @Column(nullable = true )
     private int likes;
     
-    //@Column(nullable = false)
-    //@Column(nullable = false)
-    //private short depth;
+    @Column(nullable=false)
+    @Temporal(TemporalType.DATE)
+    private Date creationDate;
     
     @Column(nullable = true)
     private Long parentCommentId;
-    
+
     @Column(nullable = false)
     private String commentText;
 
@@ -104,6 +107,23 @@ public class Comment {
     public void setParentComment(Long parentCommentId) {
         this.parentCommentId = parentCommentId;
     }
+    
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+    
+     public Long getParentCommentId() {
+        return parentCommentId;
+    }
+
+    public void setParentCommentId(Long parentCommentId) {
+        this.parentCommentId = parentCommentId;
+    }
+    
 
     /*
     @Override
