@@ -40,11 +40,7 @@ public class Comment {
     
     @Column(nullable = true )
     private int likes;
-    
-    //@Column(nullable = false)
-    //@Column(nullable = false)
-    //private short depth;
-    
+        
     @Column(nullable = true)
     private Long parentCommentId;
     
