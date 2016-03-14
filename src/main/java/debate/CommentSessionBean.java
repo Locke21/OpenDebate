@@ -6,6 +6,7 @@
 package debate;
 
 import authentication.DebateUser;
+import java.util.Date;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -31,6 +32,7 @@ public class CommentSessionBean {
         Comment newComment = new Comment();
         newComment.setOwner(user);
         newComment.setDebate(debate);
+        newComment.setCreationDate(new Date());
         newComment.setCommentText(commentText);
         newComment.setParentComment(parentCommentId);
         newComment.setLikes(0);
