@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15.03.2016, 22:35:44
+    Author     : fabi
+*/
+
+.debateCreationHeader{
+    padding: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+.debateCreationBody{
+    padding: 20px;
+}
+.options{
+    background-color: white;
+    margin-top: 10px;
+    
+}
+.innerHeader{
+    padding: 5px;
+    border-bottom: 1px solid lightgrey;
+}
+.options > .modal-body {
+    padding: 5px;
+    border-left: 1px solid lightgrey;
+}
+.form-group > label{
+    margin-top: 10px;
+}
+.form-group > label > i{
+    font-size: smaller;
+}
+.bootstrap-tagsinput{
+    width: 100%;
+}
+span.tag.label.label-info{
+    background-color: rgba(128, 128, 128, 0.22);
+    color: green;
+}
