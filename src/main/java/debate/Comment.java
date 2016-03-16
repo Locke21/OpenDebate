@@ -39,7 +39,7 @@ public class Comment {
     private Debate debate;
     
     @Column(nullable=false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
     
     @Column(nullable = true )

@@ -6,34 +6,34 @@
 
 
 $(document).ready(function () {
-    
-    $("#commentInput").keydown(function(e){
-        if(e.which == 13){
+
+    $("#commentInput").keydown(function (e) {
+        if (e.which == 13) {
             $("#commentInputBtn").click();
         }
     });
-    
-    $('#commentInputBtn').on('click', function(){
-        
+
+    $('#commentInputBtn').on('click', function () {
+
         var urlParameter = window.location.search;
         var debateId = urlParameter.slice(urlParameter.search("id=") + 3);
         var nextParam = debateId.search("&");
-        if(nextParam != -1){
-            debateId = debateId.slice(0,nextParam);
+        if (nextParam != -1) {
+            debateId = debateId.slice(0, nextParam);
         }
-        if($("#commentInput").val() != ""){
+        if ($("#commentInput").val() != "") {
             $.post('/OpenDebate/pages/', {
-            
                 action: 'comment',
                 commentText: $("#commentInput").val(),
                 debateId: debateId,
                 command: $("#commentInputBtn").val()
-            
-            },function(){
+
+            }, function (data) {
                 $("#commentInput").val("");
+                $('#comments').append(data);
             });
         }
     });
-    
-    
+
+
 });
