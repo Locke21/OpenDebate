@@ -42,3 +42,7 @@ span.tag.label.label-info{
     background-color: rgba(128, 128, 128, 0.22);
     color: green;
 }
+.datepicker,
+.datepicker:hover{
+    cursor: auto;
+}
