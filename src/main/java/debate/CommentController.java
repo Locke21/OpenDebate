@@ -53,10 +53,11 @@ public class CommentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("Bin drin!");
         try {
 
             String name = (String) request.getParameter(COMMAND);
-            short depth;
             Long parentCommentId;
 
             if (name != null) {
@@ -83,7 +84,7 @@ public class CommentController extends HttpServlet {
 
                 }
             }
-            response.sendRedirect(FrontController.FRONT_PATH);
+//            response.sendRedirect(FrontController.FRONT_PATH);
         }
         catch (Exception e) {
             e.printStackTrace();

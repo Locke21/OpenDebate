@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-$('document').ready(function () {
+$(document).ready(function () {
     $('.submit-span').on('click', function () {
         $(this).closest('form').submit();
 
