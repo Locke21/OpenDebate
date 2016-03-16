@@ -16,8 +16,9 @@
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
+        <script type="text/javascript" src="/OpenDebate/js/debate.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/sticky-kit.min.js"></script>
-        
+
     </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top openDebateNav">
@@ -38,9 +39,9 @@
                                    data-toggle="popover" data-placement="bottom" title="Results" data-content=""/>
                         </div>
                         <div id="searchContentWrapper" style="display: none">...</div>
-                        
+
                     </form>
-                    
+
                     <form class="navbar-form navbar-right" action="." method="post">
                         <div class="form-group">
                             <input type="hidden" name="action" value="logout">
@@ -52,9 +53,9 @@
                 </div>
             </div>
         </nav>
-                
+
         <jsp:include page="${requestScope.content}"></jsp:include>
-        
+
         <div class="ourFooter">© 2015-2016. All rights reserverd.</div>
     </body>
 </html>
