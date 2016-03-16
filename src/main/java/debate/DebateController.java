@@ -49,6 +49,8 @@ public class DebateController extends HttpServlet {
 
     @EJB
     private DebateSessionBean debateBean;
+    @EJB
+    private CommentSessionBean  commentBean;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -68,6 +70,7 @@ public class DebateController extends HttpServlet {
                 case GET_COMMAND_GET_DEBATE:
                     Long id =  Long.parseLong(request.getParameter("id"));
                     request.setAttribute("debate", debateBean.getDebateById(id));
+                    request.setAttribute("comments", commentBean.getComments(debateBean.getDebateById(id)));
                     request.setAttribute(FrontController.INCL_PAGE_ATTR_NAME, "Debate.jsp");
                     getServletContext().getRequestDispatcher(FrontController.TEMPLATE_PAGE)
                                 .forward(request, response);
