@@ -53,10 +53,11 @@ public class CommentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("Bin drin!");
         try {
 
             String name = (String) request.getParameter(COMMAND);
-            short depth;
             Long parentCommentId;
 
             if (name != null) {
@@ -66,11 +67,9 @@ public class CommentController extends HttpServlet {
                         parentCommentId = (Long) request.getSession().getAttribute(ATTR_PARENTCOMID);
 
                         if (parentCommentId == null) {
-                            //commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER), 
-                            //      (Debate) request.getSession().getAttribute(ATTR_DEBATE), request.getParameter(ATTR_COMMTEXT), parentCommentId);
                             commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
                                     Long.parseLong(request.getParameter(ATTR_DEBID)),
-                                    (String) request.getParameter(ATTR_COMMTEXT));
+                                    (String) request.getParameter(ATTR_COMMTEXT), (Long) request.getSession().getAttribute(ATTR_PARENTCOMID));
                         }
                         break;
                     case COMMAND_DELETE:
@@ -85,7 +84,7 @@ public class CommentController extends HttpServlet {
 
                 }
             }
-            response.sendRedirect(FrontController.FRONT_PATH);
+//            response.sendRedirect(FrontController.FRONT_PATH);
         }
         catch (Exception e) {
             e.printStackTrace();

@@ -19,10 +19,23 @@
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap-tagsinput.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
+<<<<<<< HEAD
+        <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
+        <script type="text/javascript" src="/OpenDebate/js/debate.js"></script>
+||||||| merged common ancestors
+        <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
+=======
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap-datepicker.js"></script>
+>>>>>>> fabi_master
         <script type="text/javascript" src="/OpenDebate/js/libs/sticky-kit.min.js"></script>
+<<<<<<< HEAD
+
+||||||| merged common ancestors
+        
+=======
         <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
         
+>>>>>>> fabi_master
     </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top openDebateNav">
@@ -42,10 +55,22 @@
                             <input id="searchInput" type="text" class="form-control" placeholder="Search"
                                    data-toggle="popover" data-placement="bottom" title="Results" data-content="" autocomplete="off"/>
                         </div>
+<<<<<<< HEAD
+                        <div id="searchContentWrapper" style="display: none">...</div>
+
+                    </form>
+
+||||||| merged common ancestors
+                        <div id="searchContentWrapper" style="display: none">...</div>
+                        
+                    </form>
+                    
+=======
                        
                         
                     </div>
                     
+>>>>>>> fabi_master
                     <form class="navbar-form navbar-right" action="." method="post">
                         <div class="form-group">
                             <input type="hidden" name="action" value="logout">
@@ -57,9 +82,17 @@
                 </div>
             </div>
         </nav>
-                
+
         <jsp:include page="${requestScope.content}"></jsp:include>
+<<<<<<< HEAD
+
+        <div class="ourFooter">© 2015-2016. All rights reserverd.</div>
+||||||| merged common ancestors
+        
+        <div class="ourFooter">© 2015-2016. All rights reserverd.</div>
+=======
         
         <div class="ourFooter">© 2015-2016. All rights reserved.</div>
+>>>>>>> fabi_master
     </body>
 </html>

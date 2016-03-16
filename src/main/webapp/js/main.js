@@ -4,10 +4,16 @@
  * and open the template in the editor.
  */
 
+<<<<<<< HEAD
+$(document).ready(function () {
+||||||| merged common ancestors
+$('document').ready(function () {
+=======
 $('document').ready(function () {
 
     
 
+>>>>>>> fabi_master
     $('.submit-span').on('click', function () {
         $(this).closest('form').submit();
 

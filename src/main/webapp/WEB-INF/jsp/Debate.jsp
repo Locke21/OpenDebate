@@ -131,9 +131,9 @@
             <div class="addComment">
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="new comment..">
+                    <input id="commentInput" type="text" class="form-control" placeholder="new comment..">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-send"></i></button>
+                        <button id="commentInputBtn" class="btn btn-default" value="create" type="button"><i class="glyphicon glyphicon-send"></i></button>
                     </span>
                 </div>
 

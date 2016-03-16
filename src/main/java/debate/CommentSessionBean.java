@@ -6,6 +6,7 @@
 package debate;
 
 import authentication.DebateUser;
+import java.util.Date;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -21,26 +22,8 @@ public class CommentSessionBean {
 
     @PersistenceContext(unitName = "OpenDebatePU")
     private EntityManager em;
-    
-    public Comment createComment(DebateUser user, Debate debate, String commentText, Long commentParentId) throws Exception
-    {
-        if (user == null || debate == null || commentText == null) {
-            throw new IllegalArgumentException();
-        }
-        Comment newComment = new Comment();
-        newComment.setOwner(user);
-        newComment.setDebate(debate);
-        newComment.setCommentText(commentText);
-        newComment.setParentComment(commentParentId);
-        newComment.setLikes(0);
-        newComment.setDislikes(0);
         
-        em.persist(newComment);
-        
-        return newComment;
-    }
-    
-     public Comment createComment(DebateUser user, Long debId, String commentText) throws Exception
+     public Comment createComment(DebateUser user, Long debId, String commentText, Long parentCommentId) throws Exception
     {
         Debate debate = em.find(Debate.class, debId);
         if (user == null || debate == null || commentText == null) {
@@ -49,8 +32,9 @@ public class CommentSessionBean {
         Comment newComment = new Comment();
         newComment.setOwner(user);
         newComment.setDebate(debate);
+        newComment.setCreationDate(new Date());
         newComment.setCommentText(commentText);
-        newComment.setParentComment(null);
+        newComment.setParentComment(parentCommentId);
         newComment.setLikes(0);
         newComment.setDislikes(0);
         
