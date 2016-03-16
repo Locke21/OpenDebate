@@ -22,9 +22,12 @@ html,body{
     background-color: lightgray;
 }
 .commentBox{
-    margin-top: 20px;
+    
     padding: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 10px;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
 }
 .commentBox > .modal-body > .comment{
@@ -63,7 +66,7 @@ html,body{
 
 } 
 .addComment{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding: 10px;
     
 }
@@ -71,7 +74,6 @@ html,body{
     float: right;
 }
 .commentBox > .modal-body > .commentChild > .commentFooter{
-    margin-top: 10px;
     font-size: smaller; 
 }
 
