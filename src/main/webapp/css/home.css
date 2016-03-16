@@ -89,7 +89,7 @@ cursor: pointer;
     color: grey;
     font-size: 15pt;
     text-shadow: 1px darkgray;
-    text-align: right;
+    text-align: center;
     height: 100%;
     vertical-align: central;
     
@@ -108,4 +108,21 @@ cursor: pointer;
     background-color: green;
     z-index: 10;
 }
-
+.resultDebate{
+    cursor: pointer;
+    margin-top: 5px;
+    padding: 2.5px;  
+    padding-left: 5px;
+    
+}
+.popover{    
+    width: 1000px;    
+}
+.resultDebate:hover{
+    background-color: #ddd;
+    border-radius: 5px;
+}
+.popover-content{
+    max-height: 400px;    
+    overflow-y: scroll;
+}

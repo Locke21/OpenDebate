@@ -4,56 +4,68 @@
  * and open the template in the editor.
  */
 
+<<<<<<< HEAD
 $(document).ready(function () {
+||||||| merged common ancestors
+$('document').ready(function () {
+=======
+$('document').ready(function () {
+
+    
+
+>>>>>>> fabi_master
     $('.submit-span').on('click', function () {
         $(this).closest('form').submit();
 
     });
 
-    $('.debateBox, resultDebate').on('click', function () {
+    $('.debateBox').on('click', function () {
         // $.get("/OpenDebate/pages",{content: "getDebate"});
         window.location.assign(".?action=debate&command=getDebate&id=" + this.id);
     });
 
     $(".debateMonth").stick_in_parent();
-    
-    $('#searchInput').popover({ 
-        html : true,
-        content: function() {
-          return $('#searchContentWrapper').html();
+
+    $('#searchInput').popover({
+        html: true,
+        content: function () {
+            return $('#searchContentWrapper').html();
         },
         trigger: 'manual'
-      }).blur(function(){
-          $(this).popover('hide');                      
-      });
-    
-    $('#searchInput').on('input',function(){
-       
-        $.post('/OpenDebate/pages/', {
-                
-                action: 'search',
-                pattern: $('#searchInput').val()
-                
-            },function(data){
-                
-                var popover = $('#searchInput').data('bs.popover');
-                var tip = popover.tip();
-
-                popover.options.content = data;
-
-                var visible = popover && tip && tip.is(':visible');
-
-                if (visible) {
-                    tip.find('.popover-content > *').html(data);
-                } else {
-                    popover.show();
-                }                
-                
-                
-            });
-        
+    }).blur(function () {
+        $(this).popover('hide');
     });
-    
-    
+
+    $('#searchInput').on('input', function () {
+
+        $.post('/OpenDebate/pages/', {
+            action: 'search',
+            pattern: $('#searchInput').val()
+
+        }, function (data) {
+
+            var popover = $('#searchInput').data('bs.popover');
+            var tip = popover.tip();
+
+
+            popover.options.content = data;
+
+            var visible = popover && tip && tip.is(':visible');
+
+            if (visible) {
+                tip.find('.popover-content > *').html(data);
+                $('.resultDebate').on('click', function () {
+                    window.location.assign(".?action=debate&command=getDebate&id=" + this.id);
+                });
+            } else {
+                popover.show();
+            }
+
+
+        });
+
+    });
+
+
 });
 

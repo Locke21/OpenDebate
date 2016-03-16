@@ -35,11 +35,12 @@
                 <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}
             </div>
         </div>
-        <div class=" commentBox col-md-offset-1 col-md-7">
+        <div class="col-md-offset-1 col-md-7">
             <div class="modal-header">
                 Discussion
             </div>
-            <div class="modal-body">
+            <div class="commentBox">
+            <div class="modal-body ">
                 <div class="comment">
                     <div class="commentHeader">
                         <div id="commentUser">philgras</div>
@@ -124,6 +125,7 @@
 
 
 
+            </div>
             </div>
 
             <div class="addComment">
@@ -139,6 +141,7 @@
             </div>
 
         </div>
+            
     </div>
 
 </div>
