@@ -90,6 +90,27 @@ public class CommentSessionBean {
         }*/
         return comments;
     }
+    
+    public Comment getCommentById(Long commentId){
+        
+        return em.find(Comment.class, commentId);
+    }
+    
+    /**
+     * Checks whether a comment is a comment related to a debate 
+     * or to a comment (= has a parent)
+     * 
+     * @param commentId
+     * @return true if comment has parentComment
+     */
+    public boolean hasParentComment(Long commentId){
+        
+        if (this.getCommentById(commentId).getParentCommentId() != null) {
+            return true;
+        }
+        
+        return false;
+    }
 
     /*private int getRatingCount(Comment c) {
         em.createQuery("SELECT COUNT(*) FROM RATING r GROUP BY r.ratingValue ORDER BY r.ratingValue DESC")

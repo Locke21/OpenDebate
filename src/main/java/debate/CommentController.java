@@ -64,18 +64,24 @@ public class CommentController extends HttpServlet {
         try {
 
             String name = (String) request.getParameter(COMMAND);
-            Long parentCommentId;
+            Long parentCommentId = null;
 
             if (name != null) {
 
                 switch (name) {
                     case COMMAND_CREATE:
-                        parentCommentId = (Long) request.getSession().getAttribute(ATTR_PARENTCOMID);
+                        
+                        String paramParenCommentId = request.getParameter(ATTR_PARENTCOMID);
+                        if (paramParenCommentId != null && !paramParenCommentId.isEmpty()) {
+                            parentCommentId = Long.parseLong(paramParenCommentId);
+                        }
+                        
+                        
 
-                        if (parentCommentId == null) {
+                        if (parentCommentId == null || commentBean.hasParentComment(parentCommentId) == false) {
                             Comment c = commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
                                     Long.parseLong(request.getParameter(ATTR_DEBID)),
-                                    (String) request.getParameter(ATTR_COMMTEXT), (Long) request.getSession().getAttribute(ATTR_PARENTCOMID));
+                                    (String) request.getParameter(ATTR_COMMTEXT), parentCommentId);
                             List<Comment> comments = new ArrayList();
                             comments.add(c);
                             request.setAttribute("comments", comments);
