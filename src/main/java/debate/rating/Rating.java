@@ -52,6 +52,7 @@ public class Rating implements Serializable {
     private Comment comment;
     
     @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
     private RatingValue ratingValue;
 
     public Long getId() {

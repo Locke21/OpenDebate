@@ -76,6 +76,15 @@ html,body{
 }
 .commentBox > .modal-body > .commentChild > .commentFooter{
     font-size: smaller; 
+    display: inline;
+    
+}
+.ratingTool{
+    float: right;
+    
+}
+.commentBox > .modal-body > .commentChild > .commentFooter > a{
+    float:left;
 }
 
 .addCommentChild{

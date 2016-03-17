@@ -43,23 +43,23 @@ public class CommentSessionBean {
         newComment.setCreationDate(creationDate);
         newComment.setCommentText(commentText);
         newComment.setParentComment(parentCommentId);
-        
+
         em.persist(newComment);
 
         return newComment;
     }
-    
-    public void rateComment(Long commentId, DebateUser user, Rating.RatingValue value){
+
+    public void rateComment(Long commentId, DebateUser user, Rating.RatingValue value) {
         Comment comment = em.find(Comment.class, commentId);
-        
+
         Rating rating = new Rating();
         rating.setComment(comment);
         rating.setUser(user);
         rating.setRatingValue(value);
-        
+
         em.persist(rating);
-    } 
-     
+    }
+
     /**
      *
      * @param comment current comment
@@ -83,17 +83,19 @@ public class CommentSessionBean {
                 + "WHERE c.debate = :debateId")
                 .setParameter("debateId", d)
                 .getResultList();
-        System.out.println(comments);
-        System.out.println(d);
-        
-        if(comments == null){
-            System.out.println("MArco ist ein Fegit!");
-        }
-        
+
+        /*for(Comment c : comments){
+            em.createQuery("SELECT COUNT(*) FROM RATING r GROUP BY r.ratingValue")
+                    .getResultList();
+        }*/
         return comments;
     }
 
+    /*private int getRatingCount(Comment c) {
+        em.createQuery("SELECT COUNT(*) FROM RATING r GROUP BY r.ratingValue ORDER BY r.ratingValue DESC")
+                .getResultList();
+
+    }*/
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }
-

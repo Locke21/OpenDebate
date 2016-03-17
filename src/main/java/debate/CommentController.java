@@ -95,9 +95,9 @@ public class CommentController extends HttpServlet {
                         
                         switch(request.getParameter(ATTR_RATING)){
                         
-                            case "positiv":
+                            case "positive":
                                 value = Rating.RatingValue.POSITIVE; break;
-                            case "negativ":
+                            case "negative":
                                 value = Rating.RatingValue.NEGATIVE; break;
                             default:
                                 throw new IllegalArgumentException();
