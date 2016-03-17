@@ -19,9 +19,13 @@
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap-tagsinput.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
+        <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
+
+        <script type="text/javascript" src="/OpenDebate/js/debate.js"></script>
+
 
         <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
-        <script type="text/javascript" src="/OpenDebate/js/debate.js"></script>
+
 
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap-datepicker.js"></script>
 
