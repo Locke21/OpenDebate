@@ -23,6 +23,6 @@
     </div>
 
     <div class="addCommentChild collapse" id="${comment.id}_collapse">
-        <input id="${commen.id}_input" type="text" class="form-control" placeholder="addComment"/>
+        <input id="${comment.id}_input" type="text" class="form-control" placeholder="addComment"/>
     </div> 
 </c:forEach>
