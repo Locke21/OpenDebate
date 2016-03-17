@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,6 +8,7 @@ package debate;
 
 import authentication.DebateUser;
 import java.text.SimpleDateFormat;
+import debate.rating.Rating;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.LocalBean;
@@ -41,14 +43,23 @@ public class CommentSessionBean {
         newComment.setCreationDate(creationDate);
         newComment.setCommentText(commentText);
         newComment.setParentComment(parentCommentId);
-        newComment.setLikes(0);
-        newComment.setDislikes(0);
-
+        
         em.persist(newComment);
 
         return newComment;
     }
-
+    
+    public void rateComment(Long commentId, DebateUser user, Rating.RatingValue value){
+        Comment comment = em.find(Comment.class, commentId);
+        
+        Rating rating = new Rating();
+        rating.setComment(comment);
+        rating.setUser(user);
+        rating.setRatingValue(value);
+        
+        em.persist(rating);
+    } 
+     
     /**
      *
      * @param comment current comment
@@ -72,7 +83,12 @@ public class CommentSessionBean {
                 + "WHERE c.debate = :debateId")
                 .setParameter("debateId", d)
                 .getResultList();
+        System.out.println(comments);
+        System.out.println(d);
         
+        if(comments == null){
+            System.out.println("MArco ist ein Fegit!");
+        }
         
         return comments;
     }
@@ -80,3 +96,4 @@ public class CommentSessionBean {
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }
+

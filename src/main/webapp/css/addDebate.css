@@ -27,7 +27,7 @@ and open the template in the editor.
 }
 .options > .modal-body {
     padding: 5px;
-    border-left: 1px solid lightgrey;
+    
 }
 .form-group > label{
     margin-top: 10px;
@@ -35,6 +35,14 @@ and open the template in the editor.
 .form-group > label > i{
     font-size: smaller;
 }
+
+#createForm > .form-group > input{
+    
+    margin-top: 5px;
+    margin-bottom: 15px;
+    
+}
+
 .bootstrap-tagsinput{
     width: 100%;
 }
