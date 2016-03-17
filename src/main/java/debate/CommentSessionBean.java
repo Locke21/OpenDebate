@@ -72,12 +72,7 @@ public class CommentSessionBean {
                 + "WHERE c.debate = :debateId")
                 .setParameter("debateId", d)
                 .getResultList();
-        System.out.println(comments);
-        System.out.println(d);
         
-        if(comments == null){
-            System.out.println("MArco ist ein Fegit!");
-        }
         
         return comments;
     }
