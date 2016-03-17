@@ -8,6 +8,7 @@ package debate;
 import authentication.AuthenticationBean;
 import authentication.LoginController;
 import authentication.LogoutController;
+import userProfile.ProfileController;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -26,19 +27,20 @@ import register.SignUpController;
 
 public class FrontController extends HttpServlet {
 
-    public static final String ACTION_PARAMETER    = "action";
-    private static final String ACTION_LOGIN        = LoginController.CONTEXT_NAME;
-    private static final String ACTION_SIGNUP       = SignUpController.CONTEXT_NAME;
-    private static final String ACTION_LOGOUT       = LogoutController.CONTEXT_NAME;
-    private static final String ACTION_DEBATE       = DebateController.CONTEXT_NAME;
-    private static final String ACTION_COMMENT      = CommentController.CONTEXT_NAME;
-    private static final String ACTION_HOME         = HomeController.CONTEXT_NAME;
-    private static final String ACTION_SEARCH       = SearchController.CONTEXT_NAME;
+    public static final String ACTION_PARAMETER = "action";
+    private static final String ACTION_LOGIN = LoginController.CONTEXT_NAME;
+    private static final String ACTION_SIGNUP = SignUpController.CONTEXT_NAME;
+    private static final String ACTION_LOGOUT = LogoutController.CONTEXT_NAME;
+    private static final String ACTION_DEBATE = DebateController.CONTEXT_NAME;
+    private static final String ACTION_COMMENT = CommentController.CONTEXT_NAME;
+    private static final String ACTION_HOME = HomeController.CONTEXT_NAME;
+    private static final String ACTION_SEARCH = SearchController.CONTEXT_NAME;
+    private static final String ACTION_PROFILE = ProfileController.CONTEXT_NAME;
 
-    public static final String PAGES_PREFIX         = "/WEB-INF/jsp";
-    public static final String FRONT_PATH           = "/OpenDebate/pages/";
-    public static final String TEMPLATE_PAGE        = PAGES_PREFIX + "/MainTemplate.jsp";
-    public static final String INCL_PAGE_ATTR_NAME  = "content";
+    public static final String PAGES_PREFIX = "/WEB-INF/jsp";
+    public static final String FRONT_PATH = "/OpenDebate/pages/";
+    public static final String TEMPLATE_PAGE = PAGES_PREFIX + "/MainTemplate.jsp";
+    public static final String INCL_PAGE_ATTR_NAME = "content";
 
     @EJB
     private AuthenticationBean authenticator;
@@ -48,22 +50,27 @@ public class FrontController extends HttpServlet {
             throws ServletException, IOException {
 
         if (authenticator.isClientAuthenticated(request)) {
-            
-            
+
             String action = request.getParameter(ACTION_PARAMETER);
             String servletUrl;
             if (action == null) {
                 action = ACTION_HOME;
-            } 
+            }
 
             switch (action) {
-                
+
                 case ACTION_HOME:
-                    servletUrl = HomeController.URL_PATTERN; break;                            
+                    servletUrl = HomeController.URL_PATTERN;
+                    break;
                 case ACTION_DEBATE:
-                    servletUrl = DebateController.URL_PATTERN; break;
+                    servletUrl = DebateController.URL_PATTERN;
+                    break;
+                case ACTION_PROFILE:
+                    servletUrl = ProfileController.URL_PATTERN;
+                    break;
                 default:
-                    servletUrl = HomeController.URL_PATTERN; break; 
+                    servletUrl = HomeController.URL_PATTERN;
+                    break;
             }
 
             getServletContext().getRequestDispatcher(servletUrl)
@@ -82,11 +89,9 @@ public class FrontController extends HttpServlet {
         /**
          * check authentication
          */
-        
-        
         String action = req.getParameter(ACTION_PARAMETER);
         if (action == null) {
-                resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
         } else {
 
             switch (action) {
@@ -108,7 +113,7 @@ public class FrontController extends HttpServlet {
                     break;
                 case ACTION_SEARCH:
                     getServletContext().getRequestDispatcher(SearchController.URL_PATTERN).forward(req, resp);
-                    break;   
+                    break;
                 default:
                     resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
                     break;

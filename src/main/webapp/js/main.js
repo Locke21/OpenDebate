@@ -6,6 +6,11 @@
 
 
 $('document').ready(function () {
+    
+    $('#username').on('click',function(){
+        window.location.assign(".?action=userProfile&command=getUserProfile&name=" + $(this).text());
+        
+    });
 
 
     $('.submit-span').on('click', function () {
