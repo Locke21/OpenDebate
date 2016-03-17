@@ -34,6 +34,26 @@ $(document).ready(function () {
             });
         }
     });
+    
+    $('.upVote').on('click', function(){
+        console.log("abgeschickt");
+       $.post('/OpenDebate/pages/',{
+           action: 'comment',
+           command: 'rate',
+           rating: 'positive',
+           comId: $(this).closest(".comment").attr('id')
+       });
+    });
+    
+    $('.downVote').on('click', function(){
+        console.log("abgeschickt");
+       $.post('/OpenDebate/pages/',{
+           action: 'comment',
+           command: 'rate',
+           rating: 'negative',
+           comId: $(this).closest(".comment").attr('id')
+       });
+    });
 
 
 });

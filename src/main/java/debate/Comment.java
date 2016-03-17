@@ -2,6 +2,7 @@ package debate;
 
 
 import authentication.DebateUser;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,7 +27,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="COMMENT")
-public class Comment {
+public class Comment implements Serializable{
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,18 +43,15 @@ public class Comment {
     @Column(nullable=false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
-    
-    @Column(nullable = true )
-    private int dislikes;
-    
-    @Column(nullable = true )
-    private int likes;
         
     @Column(nullable = true)
     private Long parentCommentId;
     
     @Column(nullable = false)
     private String commentText;
+    
+    @Transient
+    private int rating;
 
     public String getCommentText() {
         return commentText;
@@ -91,6 +90,14 @@ public class Comment {
         this.owner = owner;
     }
 
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     public Debate getDebate() {
         return debate;
     }
@@ -98,23 +105,6 @@ public class Comment {
     public void setDebate(Debate debate) {
         this.debate = debate;
     }
-
-    public int getDislikes() {
-        return dislikes;
-    }
-
-    public void setDislikes(int dislikes) {
-        this.dislikes = dislikes;
-    }
-
-    public int getLikes() {
-        return likes;
-    }
-
-    public void setLikes(int likes) {
-        this.likes = likes;
-    }
-
    
     public Long isParentComment() {
         return parentCommentId;

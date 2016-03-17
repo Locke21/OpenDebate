@@ -6,6 +6,7 @@
 package debate;
 
 import authentication.DebateUser;
+import debate.rating.Rating;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -27,15 +28,18 @@ public class CommentController extends HttpServlet {
     public static final String URL_PATTERN = "/servlets/CommentController";
     public static final String CONTEXT_NAME = "comment";
     //commands
+    private static final String COMMAND = "command";
     private static final String COMMAND_CREATE = "create";
     private static final String COMMAND_READ = "read";
     private static final String COMMAND_DELETE = "delete";
-    private static final String COMMAND = "command";
+    private static final String COMMAND_RATE = "rate";
+    
 
     private static final String ATTR_DEBID = "debateId";
     private static final String ATTR_COMID = "comId";
     private static final String ATTR_COMMTEXT = "commentText";
     private static final String ATTR_PARENTCOMID = "commentParentId";
+    private static final String ATTR_RATING = "rating";
 
     private static final String ATTR_USER = "user";
     private static final String ATTR_DEBATE = "debate";
@@ -79,11 +83,30 @@ public class CommentController extends HttpServlet {
                         }
                         break;
                     case COMMAND_DELETE:
-                        
+                        //Comment currComment = commentBean.getComments(Long.parseLong(request.getParameter(ATTR_COMID)));
+                        //commentBean.deleteComment(currComment, (DebateUser) request.getSession().getAttribute(ATTR_USER));
                         break;
                     case COMMAND_READ:
                         
                         break;
+                    case COMMAND_RATE:
+                        
+                        Rating.RatingValue value;
+                        
+                        switch(request.getParameter(ATTR_RATING)){
+                        
+                            case "positive":
+                                value = Rating.RatingValue.POSITIVE; break;
+                            case "negative":
+                                value = Rating.RatingValue.NEGATIVE; break;
+                            default:
+                                throw new IllegalArgumentException();
+                        }
+                        
+                        commentBean.rateComment(Long.parseLong(request.getParameter(ATTR_COMID)),
+                                                (DebateUser) request.getSession().getAttribute(ATTR_USER),
+                                                value);
+                        
                     default:
                         break;
 

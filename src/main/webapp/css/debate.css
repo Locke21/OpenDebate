@@ -14,12 +14,13 @@ html,body{
     text-align: center;
     vertical-align: central;
     padding: 10px;
-    background-color: lightgray;
+    background-color: #f8f8f8;
 }
 .mainInfos{
     padding: 10px;
     margin-top: 20px;
-    background-color: lightgray;
+    background-color: #f8f8f8;
+    border-top: 3px solid green;
 }
 .commentBox{
     
@@ -75,6 +76,15 @@ html,body{
 }
 .commentBox > .modal-body > .commentChild > .commentFooter{
     font-size: smaller; 
+    display: inline;
+    
+}
+.ratingTool{
+    float: right;
+    
+}
+.commentBox > .modal-body > .commentChild > .commentFooter > a{
+    float:left;
 }
 
 .addCommentChild{
@@ -90,12 +100,13 @@ html,body{
     float:left;
 }
 
-.jumbotron{
-    margin-bottom: 0 !important;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
+.titleHeader{
+   border-top: 5px solid #488C2A;
+   background-color: #f8f8f8;
+   line-height: 3;
+   height: 100px;
+   font-size: xx-large;
+   text-align: center;
 }
 .tags{
     padding: 5px;
