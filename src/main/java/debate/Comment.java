@@ -41,7 +41,7 @@ public class Comment implements Serializable{
     private Debate debate;
     
     @Column(nullable=false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
         
     @Column(nullable = true)

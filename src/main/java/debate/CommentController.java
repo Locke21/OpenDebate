@@ -9,6 +9,8 @@ import authentication.DebateUser;
 import debate.rating.Rating;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -71,17 +73,21 @@ public class CommentController extends HttpServlet {
                         parentCommentId = (Long) request.getSession().getAttribute(ATTR_PARENTCOMID);
 
                         if (parentCommentId == null) {
-                            commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
+                            Comment c = commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
                                     Long.parseLong(request.getParameter(ATTR_DEBID)),
                                     (String) request.getParameter(ATTR_COMMTEXT), (Long) request.getSession().getAttribute(ATTR_PARENTCOMID));
+                            List<Comment> comments = new ArrayList();
+                            comments.add(c);
+                            request.setAttribute("comments", comments);
+                            getServletContext().getRequestDispatcher(FrontController.PAGES_PREFIX + "/Comments.jsp").forward(request, response);
                         }
                         break;
                     case COMMAND_DELETE:
-                        Comment currComment = commentBean.getComment(Long.parseLong(request.getParameter(ATTR_COMID)));
-                        commentBean.deleteComment(currComment, (DebateUser) request.getSession().getAttribute(ATTR_USER));
+                        //Comment currComment = commentBean.getComments(Long.parseLong(request.getParameter(ATTR_COMID)));
+                        //commentBean.deleteComment(currComment, (DebateUser) request.getSession().getAttribute(ATTR_USER));
                         break;
                     case COMMAND_READ:
-                        commentBean.getComment(null);
+                        
                         break;
                     case COMMAND_RATE:
                         
