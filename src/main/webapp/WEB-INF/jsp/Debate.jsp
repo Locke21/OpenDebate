@@ -10,8 +10,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12 jumbotron">
-            <h3>${requestScope.debate.getTopic()}</h3>
+        <div class="col-md-12 titleHeader">
+            ${requestScope.debate.getTopic()}
         </div>
 
     </div>
