@@ -6,6 +6,7 @@
 package debate;
 
 import authentication.DebateUser;
+import debate.rating.Rating;
 import java.util.Date;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -35,14 +36,23 @@ public class CommentSessionBean {
         newComment.setCreationDate(new Date());
         newComment.setCommentText(commentText);
         newComment.setParentComment(parentCommentId);
-        newComment.setLikes(0);
-        newComment.setDislikes(0);
         
         em.persist(newComment);
         
         return newComment;
     }
     
+    public void rateComment(Long commentId, DebateUser user, Rating.RatingValue value){
+        Comment comment = em.find(Comment.class, commentId);
+        
+        Rating rating = new Rating();
+        rating.setComment(comment);
+        rating.setUser(user);
+        rating.setRatingValue(value);
+        
+        em.persist(rating);
+    } 
+     
     /**
      * 
      * @param comment current comment
