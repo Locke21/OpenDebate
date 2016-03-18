@@ -25,9 +25,9 @@ var listenersReload = function () {
     });
     
     $("focus, input").keydown(function (e) {
-        if (e.which == 13)
+        if (e.which === 13)
         {
-            if (e.target.id != "commentInput")
+            if (e.target.id !== "commentInput")
             {
                 var currentInput = e.target;
                 var currentCommentId = currentInput.parentElement.id;
@@ -35,11 +35,11 @@ var listenersReload = function () {
                 var urlParameter = window.location.search;
                 var debateId = urlParameter.slice(urlParameter.search("id=") + 3);
                 var nextParam = debateId.search("&");
-                if (nextParam != -1) {
+                if (nextParam !== -1) {
                     debateId = debateId.slice(0, nextParam);
                 }
                 var currentCommentIdField = '#' + currentCommentId + '_input';
-                if ($(currentCommentIdField).val() != "") {
+                if ($(currentCommentIdField).val() !== "") {
                     $.post('/OpenDebate/pages/', {
                         action: 'comment',
                         commentText: $(currentCommentIdField).val(),
@@ -62,7 +62,7 @@ var listenersReload = function () {
 $(document).ready(function () {
 
     $("#commentInput").keydown(function (e) {
-        if (e.which == 13) {
+        if (e.which === 13) {
             $("#commentInputBtn").click();
         }
     });
@@ -72,10 +72,10 @@ $(document).ready(function () {
         var urlParameter = window.location.search;
         var debateId = urlParameter.slice(urlParameter.search("id=") + 3);
         var nextParam = debateId.search("&");
-        if (nextParam != -1) {
+        if (nextParam !== -1) {
             debateId = debateId.slice(0, nextParam);
         }
-        if ($("#commentInput").val() != "") {
+        if ($("#commentInput").val() !== "") {
             $.post('/OpenDebate/pages/', {
                 action: 'comment',
                 commentText: $("#commentInput").val(),
