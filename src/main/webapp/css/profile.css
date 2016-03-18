@@ -10,11 +10,11 @@ and open the template in the editor.
 
 .profileHeader{
     border-top: 5px solid #488C2A;
-   background-color: #f8f8f8;
-   
-   height: 200px;
-   font-size: xx-large;
-   position: relative;
+    background-color: #f8f8f8;
+    
+    height: 200px;
+    font-size: xx-large;
+    position: relative;
 }
 .profileHeader > .photo{
     position: absolute;
@@ -32,5 +32,11 @@ and open the template in the editor.
     bottom: 0px;
     margin: 10px;
     left: 160px;
+}
+.profileHeader > ul {
+    font-size: large;
+    position:absolute;
+    right: 0px;
+    bottom: 0px;
 }
 
