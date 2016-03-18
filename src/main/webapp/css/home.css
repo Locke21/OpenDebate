@@ -126,3 +126,7 @@ cursor: pointer;
     max-height: 400px;    
     overflow-y: scroll;
 }
+#username:hover{
+   text-decoration: underline;
+   cursor: pointer;
+}
