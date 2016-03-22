@@ -17,7 +17,7 @@
         <div class="commentFooter">
             <a role="button" data-toggle="collapse" href="#${comment.id}_collapse" aria-expanded="true" >Answer</a>
             <div class="ratingTool">
-                <span><i class="glyphicon glyphicon-chevron-down downVote"></i> 0 <i class="glyphicon glyphicon-chevron-up upVote"></i></span>
+                <span><i class="glyphicon glyphicon-chevron-down downVote"></i><span class="counter">${comment.rating}</span> <i class="glyphicon glyphicon-chevron-up upVote"></i></span>
             </div>
         </div>
     </div>

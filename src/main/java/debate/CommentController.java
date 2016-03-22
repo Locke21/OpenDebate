@@ -60,7 +60,7 @@ public class CommentController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        System.out.println("Bin drin!");
+        
         try {
 
             String name = (String) request.getParameter(COMMAND);
@@ -109,7 +109,7 @@ public class CommentController extends HttpServlet {
                                 throw new IllegalArgumentException();
                         }
                         
-                        commentBean.rateComment(Long.parseLong(request.getParameter(ATTR_COMID)),
+                        long newRating = commentBean.rateComment(Long.parseLong(request.getParameter(ATTR_COMID)),
                                                 (DebateUser) request.getSession().getAttribute(ATTR_USER),
                                                 value);
                         
