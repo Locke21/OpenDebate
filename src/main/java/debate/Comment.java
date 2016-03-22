@@ -3,13 +3,17 @@ package debate;
 
 import authentication.DebateUser;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -44,15 +48,36 @@ public class Comment implements Serializable{
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
         
-    @Column(nullable = true)
-    private Long parentCommentId;
-    
     @Column(nullable = false)
     private String commentText;
+    
+    @JoinColumn
+    @ManyToOne
+    private Comment parent;
+    
+    @OneToMany(mappedBy = "parent")
+    private Collection<Comment> children;
     
     @Transient
     private int rating;
 
+    public Comment getParent() {
+        return parent;
+    }
+
+    public void setParent(Comment parent) {
+        this.parent = parent;
+    }
+
+    public Collection<Comment> getChildren() {
+        return children;
+    }
+
+    public void setChildren(Collection<Comment> children) {
+        this.children = children;
+    }
+
+    
     public String getCommentText() {
         return commentText;
     }
@@ -69,14 +94,6 @@ public class Comment implements Serializable{
         this.creationDate = creationDate;
     }
 
-    public Long getParentCommentId() {
-        return parentCommentId;
-    }
-
-    public void setParentCommentId(Long parentCommentId) {
-        this.parentCommentId = parentCommentId;
-    }
-    
 
     public Long getId() {
         return id;
@@ -106,13 +123,10 @@ public class Comment implements Serializable{
         this.debate = debate;
     }
    
-    public Long isParentComment() {
-        return parentCommentId;
-    }
+//    public Long isParentComment() {
+//        return parentCommentId;
+//    }
 
-    public void setParentComment(Long parentCommentId) {
-        this.parentCommentId = parentCommentId;
-    }
 
     /*
     @Override
