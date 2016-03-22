@@ -83,6 +83,16 @@ $(document).ready(function () {
             $("#commentInputBtn").click();
         }
     });
+    
+    $(".tags").on('click',function(){
+        var search = $(this).html();
+        $("#searchInput").val(search);
+        $("#searchInput").trigger('input');
+        
+        
+        
+        
+    });
 
     $('#commentInputBtn').on('click', function () {
 

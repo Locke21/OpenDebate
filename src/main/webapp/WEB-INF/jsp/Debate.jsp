@@ -17,16 +17,16 @@
     </div>
     <div class="row">
         <div class="genInfos col-md-12">
-            <span class="tags">useful </span> 
-            <span class="tags">mavenMarco </span> 
-            <span class="tags">developer </span> 
-            <span class="tags">fancyStuff </span> 
-            <span class="tags">philgrasIsInDaHouse </span> 
+            <span class="tags">useful</span> 
+            <span class="tags">MavenMarco</span> 
+            <span class="tags">developer</span> 
+            <span class="tags">fancyStuff</span> 
+            <span class="tags">philgrasIsInDaHouse</span> 
         </div>
     </div>
 
     <div class="row">
-        <div class="mainInfos col-md-4">
+        <div class="mainInfos col-md-12">
             <div class="modal-header">
                 Main Infos
             </div>
@@ -35,7 +35,9 @@
                 <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}
             </div>
         </div>
-        <div class="col-md-offset-1 col-md-7">
+    </div>
+            <div class="row">
+        <div class="col-md-12">
             <div class="modal-header">
                 Discussion
             </div>
