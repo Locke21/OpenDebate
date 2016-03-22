@@ -19,7 +19,8 @@
             <div id="rating${comment.id}" class="ratingTool" data-toggle="popover" title="Raters" data-content="" data-placement="left">
                 <span>
                     <i class="glyphicon glyphicon-chevron-down downVote"></i>
-                    <span class="" data-toggle="popover" title="Raters" data-content="" data-placement="left" z-index="10"> ${comment.rating} </span>
+                    <span class="" data-toggle="popover" title="Raters" data-content="" data-placement="left" z-index="10">  </span>
+                    <span class="counter">${comment.rating}</span>
                     <i class="glyphicon glyphicon-chevron-up upVote"></i>
                 </span>
             </div>
