@@ -16,19 +16,14 @@
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/home.css">
         <link tpye="text/css" rel="stylesheet" href="/OpenDebate/css/debate.css">
         <link tpye="text/css" rel="stylesheet" href="/OpenDebate/css/addDebate.css">
+        <link tpye="text/css" rel="stylesheet" href="/OpenDebate/css/profile.css">
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap-tagsinput.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
-
         <script type="text/javascript" src="/OpenDebate/js/debate.js"></script>
-
-
         <script type="text/javascript" src="/OpenDebate/js/main.js"></script>
-
-
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap-datepicker.js"></script>
-
         <script type="text/javascript" src="/OpenDebate/js/libs/sticky-kit.min.js"></script>
 
     </head>
@@ -62,7 +57,7 @@
                                 <i class="glyphicon glyphicon-off"></i>
                         </div>
                     </form>
-                    <p class="navbar-text navbar-right">Hello ${sessionScope.user.getUsername()}</p>
+                    <p class="navbar-text navbar-right">Hello <span id="username">${sessionScope.user.getUsername()}</span></p>
                 </div>
             </div>
         </nav>
