@@ -146,4 +146,7 @@ html,body{
 .upVote:hover{
     color: green;
 }
+.counter{
+    cursor: pointer;
+}
 

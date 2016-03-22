@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 var listenersReload = function () {
-    $(".ratingTool").popover({
+    $(".counter").popover({
         html: true,
         content: "Feggit69<br>Pimmelberger<br>MavenMarco<br>RedHat<br>MisterX<br>Everybody<br>You",
         trigger: "manual"
@@ -12,6 +12,8 @@ var listenersReload = function () {
         $(this).popover("show");
         leavePopover();
     });
+    
+   
     
     $('.upVote').on('click', function () {
 
