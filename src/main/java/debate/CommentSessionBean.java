@@ -49,7 +49,7 @@ public class CommentSessionBean {
         return newComment;
     }
 
-    public void rateComment(Long commentId, DebateUser user, Rating.RatingValue value) {
+    public long rateComment(Long commentId, DebateUser user, Rating.RatingValue value) {
         Comment comment = em.find(Comment.class, commentId);
 
         Rating rating = new Rating();
@@ -58,6 +58,9 @@ public class CommentSessionBean {
         rating.setRatingValue(value);
 
         em.persist(rating);
+        
+        return readCommentRating(comment);
+        
     }
 
     /**
@@ -84,10 +87,9 @@ public class CommentSessionBean {
                 .setParameter("debateId", d)
                 .getResultList();
 
-        /*for(Comment c : comments){
-            em.createQuery("SELECT COUNT(*) FROM RATING r GROUP BY r.ratingValue")
-                    .getResultList();
-        }*/
+        for(Comment c : comments){
+            c.setRating(readCommentRating(c));
+        }
         return comments;
     }
     
@@ -111,12 +113,25 @@ public class CommentSessionBean {
         
         return false;
     }
-
-    /*private int getRatingCount(Comment c) {
-        em.createQuery("SELECT COUNT(*) FROM RATING r GROUP BY r.ratingValue ORDER BY r.ratingValue DESC")
-                .getResultList();
-
-    }*/
+    
+    
+    private long readCommentRating(Comment c) {
+        
+        String query = "SELECT count(r) FROM Rating r WHERE r.ratingValue = :rating AND r.comment = :comment";
+        
+        long rating = (Long) em.createQuery(query)
+                .setParameter("rating", Rating.RatingValue.POSITIVE)
+                .setParameter("comment", c)
+                .getSingleResult();
+        
+        rating -= (Long) em.createQuery(query)
+                .setParameter("rating", Rating.RatingValue.NEGATIVE)
+                .setParameter("comment", c)
+                .getSingleResult();
+        
+        return rating;
+        
+    }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
 }

@@ -51,7 +51,7 @@ public class Comment implements Serializable{
     private String commentText;
     
     @Transient
-    private int rating;
+    private long rating;
 
     public String getCommentText() {
         return commentText;
@@ -90,11 +90,11 @@ public class Comment implements Serializable{
         this.owner = owner;
     }
 
-    public int getRating() {
+    public long getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(long rating) {
         this.rating = rating;
     }
 

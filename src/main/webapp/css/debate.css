@@ -119,3 +119,20 @@ html,body{
 .debatesOuter{
     margin-bottom: 60px;
 }
+
+.downVote{
+    cursor: pointer;
+}
+
+.downVote:hover{
+    color: darkred;
+}
+
+.upVote{
+    cursor: pointer;
+}
+
+.upVote:hover{
+    color: green;
+}
+
