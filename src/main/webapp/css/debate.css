@@ -124,6 +124,13 @@ html,body{
     margin-bottom: 60px;
 }
 
+.popover-content{
+    height: 100px;
+    overflow: scroll;
+    overflow-y: auto;
+}
+
+
 .downVote{
     cursor: pointer;
 }
@@ -139,3 +146,4 @@ html,body{
 .upVote:hover{
     color: green;
 }
+
