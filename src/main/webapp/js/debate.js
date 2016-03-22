@@ -10,6 +10,9 @@ var listenersReload = function () {
         trigger: "manual"
     }).on("mouseenter", function(){
         $(this).popover("show");
+        $('.popover').addClass('tester');
+        $('.popover-content').addClass('tester');
+        
         leavePopover();
     });
     
