@@ -17,11 +17,10 @@
     </div>
     <div class="row">
         <div class="genInfos col-md-12">
-            <span class="tags">useful</span> 
-            <span class="tags">MavenMarco</span> 
-            <span class="tags">developer</span> 
-            <span class="tags">fancyStuff</span> 
-            <span class="tags">philgrasIsInDaHouse</span> 
+            <c:forEach items="${requestScope.debate.getTagList()}" var="tag" >
+                <span class="tags">${tag}</span>
+            </c:forEach> 
+             
         </div>
     </div>
 

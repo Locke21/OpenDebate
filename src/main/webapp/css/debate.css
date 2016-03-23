@@ -124,6 +124,13 @@ html,body{
     margin-bottom: 60px;
 }
 
+.popover-content{
+    height: 100px;
+    overflow: scroll;
+    overflow-y: auto;
+}
+
+
 .downVote{
     cursor: pointer;
 }
@@ -139,3 +146,21 @@ html,body{
 .upVote:hover{
     color: green;
 }
+.counter{
+    cursor: pointer;
+}
+.tester.popover-content{
+    background-color: rgba(27, 27, 27, 0.88);
+    color: white;
+  
+}
+.tester.popover{
+    max-width: 150px;
+    border-radius: 0px;
+    border-top: 3px solid #488C2A;
+}
+.tester.popover-title{
+    border-radius: 0px;
+    background-color: #f8f8f8;
+}
+
