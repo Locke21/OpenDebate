@@ -34,12 +34,14 @@
                     <div id="commentUser">${childComment.getOwner().getUsername()}</div>
                     <div id="commentDate">${childComment.creationDate}</div>
                 </div>
-                <div class="commentBody">${childComment.commentText}</div>
-                <div class="commentFooter">
-                    <div class="ratingTool">
-                        <span><i class="glyphicon glyphicon-chevron-down downVote"></i> 0 <i class="glyphicon glyphicon-chevron-up upVote"></i></span>
-                    </div>
-                </div>
+               <div class="commentBody">${comment.commentText}</div>
+        <div class="commentFooter">
+            <a role="button" data-toggle="collapse" href="#${comment.id}_collapse" aria-expanded="true" >Answer</a>
+            <div class="ratingTool">
+                <span><i class="glyphicon glyphicon-chevron-down downVote"></i><span class="counter">${comment.rating}</span> <i class="glyphicon glyphicon-chevron-up upVote"></i></span>
+            </div>
+        </div>
+
             </div>
     </c:forEach>
     <c:if test="${comment.getDebate().getIsOpen() == true}">
