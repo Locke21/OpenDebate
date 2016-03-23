@@ -15,12 +15,14 @@
         </div>
         <div class="commentBody">${comment.commentText}</div>
         <div class="commentFooter">
-            <a role="button" data-toggle="collapse" href="#${comment.id}_collapse" aria-expanded="true" >Answer</a>
+            <c:if test="${comment.getDebate().isOpen == true}">
+                <a role="button" data-toggle="collapse" href="#${comment.id}_collapse" aria-expanded="true" >Answer</a>
+            </c:if>
             <div id="rating${comment.id}" class="ratingTool" >
                 <span>
                     <i class="glyphicon glyphicon-chevron-down downVote"></i>                    
                     <span class="counter" data-toggle="popover" title="Raters" data-content="" data-placement="left">
-                        
+
                         ${comment.rating}                    
                     </span>
                     <i class="glyphicon glyphicon-chevron-up upVote"></i>
@@ -29,24 +31,23 @@
         </div>
     </div>
     <c:forEach items="${comment.getChildren()}" var="childComment">
-            <div class="commentChild">
-                <div class="commentHeader">
-                    <div id="commentUser">${childComment.getOwner().getUsername()}</div>
-                    <div id="commentDate">${childComment.creationDate}</div>
+        <div class="commentChild">
+            <div class="commentHeader">
+                <div id="commentUser">${childComment.getOwner().getUsername()}</div>
+                <div id="commentDate">${childComment.creationDate}</div>
+            </div>
+            <div class="commentBody">${childComment.commentText}</div>
+            <div class="commentFooter">               
+                <div class="ratingTool">
+                    <span><i class="glyphicon glyphicon-chevron-down downVote"></i><span>0</span> <i class="glyphicon glyphicon-chevron-up upVote"></i></span>
                 </div>
-               <div class="commentBody">${comment.commentText}</div>
-        <div class="commentFooter">
-            <a role="button" data-toggle="collapse" href="#${comment.id}_collapse" aria-expanded="true" >Answer</a>
-            <div class="ratingTool">
-                <span><i class="glyphicon glyphicon-chevron-down downVote"></i><span class="counter">${comment.rating}</span> <i class="glyphicon glyphicon-chevron-up upVote"></i></span>
             </div>
-        </div>
 
-            </div>
-    </c:forEach>
-    <c:if test="${comment.getDebate().getIsOpen() == true}">
-        <div class="addCommentChild collapse" id="${comment.id}_collapse">
-            <input id="${comment.id}_input" type="text" class="form-control" placeholder="addComment"/>
         </div>
-    </c:if>
+    </c:forEach>
+
+    <div class="addCommentChild collapse" id="${comment.id}_collapse">
+        <input id="${comment.id}_input" type="text" class="form-control" placeholder="addComment"/>
+    </div>
+
 </c:forEach>

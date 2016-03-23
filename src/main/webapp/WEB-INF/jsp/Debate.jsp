@@ -20,7 +20,7 @@
             <c:forEach items="${requestScope.debate.getTagList()}" var="tag" >
                 <span class="tags">${tag}</span>
             </c:forEach> 
-             
+
         </div>
     </div>
 
@@ -35,19 +35,19 @@
             </div>
         </div>
     </div>
-            <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="modal-header">
                 Discussion
             </div>
             <div class="commentBox">
-            <div id="comments" class="modal-body ">
-             
-                <jsp:include page="Comments.jsp"></jsp:include>
-               
-            </div>
-            </div>
-            <c:if test="${comment.getDebate().getIsOpen() == true}">
+                <div id="comments" class="modal-body ">
+
+                    <jsp:include page="Comments.jsp"></jsp:include>
+
+                    </div>
+                </div>
+            <c:if test="${debate.isOpen == true}">
                 <div class="addComment">
 
                     <div class="input-group">
@@ -61,7 +61,7 @@
                 </div>
             </c:if>
         </div>
-            
+
     </div>
 
 </div>

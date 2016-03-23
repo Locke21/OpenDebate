@@ -30,10 +30,12 @@ html,body{
 }
 .commentBox > .modal-body > .comment{
     margin-top: 5px;
+    margin-bottom: 10px;
+    
     border-top: 1px solid rgb(222, 223, 231);
     border-left: 1px solid rgb(222, 223, 231);
     padding: 10px;
-    padding-bottom: 0;
+    
 }
 .commentBox > .modal-body > .comment > .commentHeader{
     display: inline-block;
@@ -45,7 +47,9 @@ html,body{
 .commentBox > .modal-body > .comment > .commentFooter{
     margin-top: 10px;
     font-size: smaller; 
+    display:inline;
 }
+
 
 .commentBox > .modal-body > .commentChild{
     margin-top: 5px;
@@ -80,10 +84,10 @@ html,body{
     
 }
 .ratingTool{
-    float: right;
+    float: right !important;;
     
 }
-.commentBox > .modal-body > .commentChild > .commentFooter > a{
+.commentBox > .modal-body > .commentChild > .commentFooter > *{
     float:left;
 }
 
