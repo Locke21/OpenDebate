@@ -4,6 +4,20 @@
  * and open the template in the editor.
  */
 var listenersReload = function () {
+    $(".counter").popover({
+        html: true,
+        content: "Feggit69<br>Pimmelberger<br>MavenMarco<br>RedHat<br>MisterX<br>Everybody<br>You",
+        trigger: "manual"
+    }).on("mouseenter", function(){
+        $(this).popover("show");
+        $('.popover').addClass('tester');
+        $('.popover-content').addClass('tester');
+        
+        leavePopover();
+    });
+    
+   
+    
     $('.upVote').on('click', function () {
 
         var counter = $(this).siblings('.counter');
@@ -76,12 +90,28 @@ var listenersReload = function () {
     });
 };
 
+var leavePopover = function(){
+    $(".popover").on("mouseleave", function(){
+        $(this).hide();
+    });
+};
+
 $(document).ready(function () {
 
     $("#commentInput").keydown(function (e) {
         if (e.which === 13) {
             $("#commentInputBtn").click();
         }
+    });
+    
+    $(".tags").on('click',function(){
+        var search = $(this).html();
+        $("#searchInput").val(search);
+        $("#searchInput").trigger('input');
+        
+        
+        
+        
     });
 
     $('#commentInputBtn').on('click', function () {
@@ -106,10 +136,6 @@ $(document).ready(function () {
             });
         }
     });
-
-    listenersReload();
-
     
-
-
+    listenersReload();
 });

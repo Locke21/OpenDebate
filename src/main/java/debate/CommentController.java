@@ -10,6 +10,7 @@ import debate.rating.Rating;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -31,14 +32,13 @@ public class CommentController extends HttpServlet {
     private static final String COMMAND = "command";
     private static final String COMMAND_CREATE = "create";
     private static final String COMMAND_READ = "read";
-    private static final String COMMAND_DELETE = "delete";
     private static final String COMMAND_RATE = "rate";
     
 
     private static final String ATTR_DEBID = "debateId";
-    private static final String ATTR_COMID = "comId";
+    private static final String ATTR_COMMENTID = "comId";
     private static final String ATTR_COMMTEXT = "commentText";
-    private static final String ATTR_PARENTCOMID = "commentParentId";
+    private static final String ATTR_PARENTCOMMENTID = "commentParentId";
     private static final String ATTR_RATING = "rating";
 
     private static final String ATTR_USER = "user";
@@ -71,27 +71,21 @@ public class CommentController extends HttpServlet {
                 switch (name) {
                     case COMMAND_CREATE:
                         
-                        String paramParenCommentId = request.getParameter(ATTR_PARENTCOMID);
-                        if (paramParenCommentId != null && !paramParenCommentId.isEmpty()) {
-                            parentCommentId = Long.parseLong(paramParenCommentId);
-                        }
+                        Long debateId = Long.parseLong(request.getParameter(ATTR_DEBID));
+                        String commentText = request.getParameter(ATTR_COMMTEXT);
+                        String parentId = request.getParameter(ATTR_PARENTCOMMENTID);
+                       
                         
+                        Comment c = commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER), 
+                                                    debateId,
+                                                    commentText, 
+                                                    parentId == null? null : Long.parseLong(parentId));
                         
-
-                        if (parentCommentId == null || commentBean.hasParentComment(parentCommentId) == false) {
-                            Comment c = commentBean.createComment((DebateUser) request.getSession().getAttribute(ATTR_USER),
-                                    Long.parseLong(request.getParameter(ATTR_DEBID)),
-                                    (String) request.getParameter(ATTR_COMMTEXT), parentCommentId);
-                            List<Comment> comments = new ArrayList();
-                            comments.add(c);
-                            request.setAttribute("comments", comments);
-                            getServletContext().getRequestDispatcher(FrontController.PAGES_PREFIX + "/Comments.jsp").forward(request, response);
-                        }
-                        break;
-                    case COMMAND_DELETE:
-                        //Comment currComment = commentBean.getComments(Long.parseLong(request.getParameter(ATTR_COMID)));
-                        //commentBean.deleteComment(currComment, (DebateUser) request.getSession().getAttribute(ATTR_USER));
-                        break;
+                        List<Comment> comments = new ArrayList();
+                        comments.add(c);
+                        request.setAttribute("comments", comments);
+                        getServletContext().getRequestDispatcher(FrontController.PAGES_PREFIX + "/Comments.jsp").forward(request, response);
+                        
                     case COMMAND_READ:
                         
                         break;
@@ -108,8 +102,8 @@ public class CommentController extends HttpServlet {
                             default:
                                 throw new IllegalArgumentException();
                         }
-                        
-                        long newRating = commentBean.rateComment(Long.parseLong(request.getParameter(ATTR_COMID)),
+
+                        long newRating = commentBean.rateComment(Long.parseLong(request.getParameter(ATTR_COMMENTID)),
                                                 (DebateUser) request.getSession().getAttribute(ATTR_USER),
                                                 value);
                         

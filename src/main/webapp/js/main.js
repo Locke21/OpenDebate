@@ -26,9 +26,6 @@ $('document').ready(function () {
 
     $('#searchInput').popover({
         html: true,
-        content: function () {
-            return $('#searchContentWrapper').html();
-        },
         trigger: 'manual'
     }).blur(function () {
         $(this).popover('hide');

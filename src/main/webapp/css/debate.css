@@ -20,15 +20,12 @@ html,body{
     padding: 10px;
     margin-top: 20px;
     background-color: #f8f8f8;
-    border-top: 3px solid green;
 }
 .commentBox{
-    
+    background-color: #f8f8f8;
     padding: 10px;
-    margin-bottom: 10px;
-    max-height: 400px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    margin-bottom: 70px;
+   
 
 }
 .commentBox > .modal-body > .comment{
@@ -67,8 +64,11 @@ html,body{
 
 } 
 .addComment{
-    margin-bottom: 20px;
+    
     padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    width: 79%;
     
 }
 .sendLayer{
@@ -110,15 +110,26 @@ html,body{
 }
 .tags{
     padding: 5px;
-    background-color: green;
-    color: white;
+    color: #488C2A;
     margin: 5px;
     border-radius: 10px;
+    
 
+}
+.tags:hover{
+    cursor: pointer;
+    text-decoration: underline;
 }
 .debatesOuter{
     margin-bottom: 60px;
 }
+
+.popover-content{
+    height: 100px;
+    overflow: scroll;
+    overflow-y: auto;
+}
+
 
 .downVote{
     cursor: pointer;
@@ -134,5 +145,22 @@ html,body{
 
 .upVote:hover{
     color: green;
+}
+.counter{
+    cursor: pointer;
+}
+.tester.popover-content{
+    background-color: rgba(27, 27, 27, 0.88);
+    color: white;
+  
+}
+.tester.popover{
+    max-width: 150px;
+    border-radius: 0px;
+    border-top: 3px solid #488C2A;
+}
+.tester.popover-title{
+    border-radius: 0px;
+    background-color: #f8f8f8;
 }
 
