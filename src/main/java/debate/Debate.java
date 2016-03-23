@@ -7,7 +7,10 @@ package debate;
 
 import authentication.DebateUser;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.StringTokenizer;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,38 +26,38 @@ import javax.persistence.TemporalType;
  * @author D062572
  */
 @Entity
-@Table(name="DEBATE")
+@Table(name = "DEBATE")
 public class Debate implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    @Column(nullable=false)
+
+    @Column(nullable = false)
     private String topic;
-    
-    @Column(nullable=false)
+
+    @Column(nullable = false)
     private String description;
-    
-    @Column(nullable=false)
+
+    @Column(nullable = false)
     private boolean isOpen;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date creationDate;
 
     private String Tags;
-    
+
     @Temporal(TemporalType.DATE)
     private Date closingDate;
-    
-    @Column(nullable=false)
+
+    @Column(nullable = false)
     private int clicks;
-    
-    
+
     @ManyToOne(optional = false)
     private DebateUser owner;
-    
+
     public String getTopic() {
         return topic;
     }
@@ -134,6 +137,13 @@ public class Debate implements Serializable {
         return hash;
     }
 
+    public ArrayList<String> getTagList() {
+        ArrayList<String> list = new ArrayList();
+        String newTags = Tags.replace(" ", "");
+        list.addAll(Arrays.asList(newTags.split(",")));
+        return list;
+    }
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
@@ -151,5 +161,5 @@ public class Debate implements Serializable {
     public String toString() {
         return "debate.Debate[ id=" + id + " ]";
     }
-    
+
 }
