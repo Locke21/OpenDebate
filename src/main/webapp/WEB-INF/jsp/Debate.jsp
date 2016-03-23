@@ -42,50 +42,24 @@
             </div>
             <div class="commentBox">
             <div id="comments" class="modal-body ">
-                <!--<div class="comment">
-                    <div class="commentHeader">
-                        <div id="commentUser">philgras</div>
-                        <div id="commentDate">01.01.2016 | 08:54</div>
-                    </div>
-                    <div class="commentBody">So ein Schwachsinn..</div>
-                    <div class="commentFooter"><a role="button" data-toggle="collapse" href="#addCommentChild" aria-expanded="true" >answer</a></div>
-                </div>
-
-                <div class="addCommentChild collapse" id="addCommentChild">
-                    <input type="text" class="form-control" placeholder="addComment"/>
-                </div> 
-
-
-                
-
-                <div class="commentChild">
-                    <div class="commentHeader">
-                        <div id="commentUser">philgras</div>
-                        <div id="commentDate">01.01.2016 | 08:54</div>
-                    </div>
-                    <div class="commentBody">Ja ich stimme dir zu</div>
-                    <div class="commentFooter">footer</div>
-                </div>-->
-
-                
+             
                 <jsp:include page="Comments.jsp"></jsp:include>
                
-
             </div>
             </div>
+            <c:if test="${comment.getDebate().getIsOpen() == true}">
+                <div class="addComment">
 
-            <div class="addComment">
+                    <div class="input-group">
+                        <input id="commentInput" type="text" class="form-control" placeholder="new comment..">
+                        <span class="input-group-btn">
+                            <button id="commentInputBtn" class="btn btn-default" value="create" type="button"><i class="glyphicon glyphicon-send"></i></button>
+                        </span>
+                    </div>
 
-                <div class="input-group">
-                    <input id="commentInput" type="text" class="form-control" placeholder="new comment..">
-                    <span class="input-group-btn">
-                        <button id="commentInputBtn" class="btn btn-default" value="create" type="button"><i class="glyphicon glyphicon-send"></i></button>
-                    </span>
+
                 </div>
-
-
-            </div>
-
+            </c:if>
         </div>
             
     </div>
