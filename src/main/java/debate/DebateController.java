@@ -38,14 +38,15 @@ public class DebateController extends HttpServlet {
     public static final String GET_COMMAND_GET_DEBATE = "getDebate";
 
     public static final String POST_COMMAND_CREATE = "create";
-    public static final String POST_COMMAND_READ = "read";
+    public static final String POST_COMMAND_CLOSE = "close";
     public static final String POST_COMMAND_DELETE = "delete";
     
 
-    private static final String ATTR_TOPIC = "topic";
-    private static final String ATTR_DESC = "description";
-    private static final String ATTR_TAGS = "tags";
-    private static final String ATTR_DATE = "closingDate";
+    private static final String PARA_DEBATE_ID = "id";
+    private static final String PARA_TOPIC = "topic";
+    private static final String PARA_DESC = "description";
+    private static final String PARA_TAGS = "tags";
+    private static final String PARA_DATE = "closingDate";
 
     @EJB
     private DebateSessionBean debateBean;
@@ -68,7 +69,7 @@ public class DebateController extends HttpServlet {
                                 .forward(request, response);
                     break;
                 case GET_COMMAND_GET_DEBATE:
-                    Long id =  Long.parseLong(request.getParameter("id"));
+                    Long id =  Long.parseLong(request.getParameter(PARA_DEBATE_ID));
                     request.setAttribute("debate", debateBean.getDebateById(id));
                     request.setAttribute("comments", commentBean.getComments(debateBean.getDebateById(id)));
                     request.setAttribute(FrontController.INCL_PAGE_ATTR_NAME, "Debate.jsp");
@@ -104,19 +105,30 @@ public class DebateController extends HttpServlet {
             switch(name){
                 case POST_COMMAND_CREATE:
                     debateBean.createDebate((DebateUser) request.getSession().getAttribute("user"),
-                                            (String) request.getParameter(ATTR_TOPIC), 
-                                            (String) request.getParameter(ATTR_DESC),
-                                            (String) request.getParameter(ATTR_TAGS),
-                                            new SimpleDateFormat("dd.MM.yyyy").parse((String) request.getParameter(ATTR_DATE)));
+                                            (String) request.getParameter(PARA_TOPIC), 
+                                            (String) request.getParameter(PARA_DESC),
+                                            (String) request.getParameter(PARA_TAGS),
+                                            new SimpleDateFormat("dd.MM.yyyy").parse((String) request.getParameter(PARA_DATE)));
+                    
+                    response.sendRedirect(FrontController.FRONT_PATH);
                     break;
-                case POST_COMMAND_READ:
+                case POST_COMMAND_CLOSE:
+                    
+                    debateBean.closeDebate(Long.parseLong(request.getParameter(request.getParameter(PARA_DEBATE_ID))));
+                    response.sendRedirect(FrontController.FRONT_PATH + "?" + FrontController.ACTION_PARAMETER+ "=" + CONTEXT_NAME + "&"
+                                                                     + COMMAND_PARAMETER + "=" + GET_COMMAND_GET_DEBATE + "&" 
+                                                                     + PARA_DEBATE_ID + "=" + request.getParameter(PARA_DEBATE_ID));
+                    
                     break;
                 case POST_COMMAND_DELETE:
+                    
+                    
+                    response.sendRedirect(FrontController.FRONT_PATH);
                     break;
                 default:
                     break;
             }
-            response.sendRedirect(FrontController.FRONT_PATH);
+            
         }catch(Exception e){
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_BAD_REQUEST,"Wrong command");
