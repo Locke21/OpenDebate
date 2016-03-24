@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 var listenersReload = function () {
     $(".counter").popover({
         html: true,
         content: "Feggit69<br>Pimmelberger<br>MavenMarco<br>RedHat<br>MisterX<br>Everybody<br>You",
         trigger: "manual"
-    }).on("mouseenter", function(){
+    }).on("mouseenter", function () {
         $(this).popover("show");
         $('.popover').addClass('ratersList');
         $('.popover-content').addClass('ratersList');
-        
+
         leavePopover();
     });
     
-   
     
+
+
     $('.upVote').on('click', function () {
 
         var counter = $(this).siblings('.counter');
@@ -27,18 +29,18 @@ var listenersReload = function () {
             command: 'rate',
             rating: 'positive',
             comId: $(this).closest(".comment").attr('id')
-        }).done(function(){
+        }).done(function () {
             counter.html(++counterValue);
-            
 
-            
-        }).fail(function(){
+
+
+        }).fail(function () {
             console.log("Already commented");
         });
     });
 
     $('.downVote').on('click', function () {
-        
+
         var counter = $(this).siblings('.counter');
         var counterValue = parseInt(counter.html());
         $.post('/OpenDebate/pages/', {
@@ -46,15 +48,15 @@ var listenersReload = function () {
             command: 'rate',
             rating: 'negative',
             comId: $(this).closest(".comment").attr('id')
-        }).done(function(){
+        }).done(function () {
             counter.html(--counterValue);
-            
-        }).fail(function(){
+
+        }).fail(function () {
             console.log("Already commented");
         });
-        
+
     });
-    
+
     $("focus, input").keydown(function (e) {
         if (e.which === 13)
         {
@@ -79,8 +81,13 @@ var listenersReload = function () {
                         command: 'create'
 
                     }, function (data) {
-                        window.location = window.location.search;
+                        var childComment = '#'+currentCommentId+'_child';
+                        localStorage.setItem("newComment", childComment);
                         
+                        
+                        window.location = (window.location.search);
+                        
+
                     });
                 }
             }
@@ -90,28 +97,40 @@ var listenersReload = function () {
     });
 };
 
-var leavePopover = function(){
-    $(".popover").on("mouseleave", function(){
+var leavePopover = function () {
+    $(".popover").on("mouseleave", function () {
         $(this).hide();
     });
 };
 
 $(document).ready(function () {
+    
+    if($(document).find(localStorage.getItem("newComment")).val() !== undefined){
+        var newComment = localStorage.getItem("newComment");
+       
+        $(document.body).animate({
+            'scrollTop':   $(""+newComment+"").offset().top
+        }, 1000);
+        
+        localStorage.removeItem("newComment");
+    }
+    
+    
 
     $("#commentInput").keydown(function (e) {
         if (e.which === 13) {
             $("#commentInputBtn").click();
         }
     });
-    
-    $(".tags").on('click',function(){
+
+    $(".tags").on('click', function () {
         var search = $(this).html();
         $("#searchInput").val(search);
         $("#searchInput").trigger('input');
-        
-        
-        
-        
+
+
+
+
     });
 
     $('#commentInputBtn').on('click', function () {
@@ -137,6 +156,6 @@ $(document).ready(function () {
             });
         }
     });
-    
+
     listenersReload();
 });

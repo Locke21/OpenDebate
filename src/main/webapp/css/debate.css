@@ -146,4 +146,7 @@ html,body{
 .counter{
     cursor: pointer;
 }
+.recentComment{
+    color: red;
+}
 
