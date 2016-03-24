@@ -7,6 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<c:if test="${comments.isEmpty()}">
+    <span class="commentsInfo">No comments so far. Be the first contributor!</span> 
+</c:if>
 <c:forEach items="${comments}" var="comment">
     <div id="${comment.id}" class="comment">
         <div class="commentHeader">
@@ -39,7 +42,11 @@
             <div class="commentBody">${childComment.commentText}</div>
             <div class="commentFooter">               
                 <div class="ratingTool">
-                    <span><i class="glyphicon glyphicon-chevron-down downVote"></i><span>0</span> <i class="glyphicon glyphicon-chevron-up upVote"></i></span>
+                    <span>
+                        <i class="glyphicon glyphicon-chevron-down downVote"></i>
+                        <span>0</span>
+                        <i class="glyphicon glyphicon-chevron-up upVote"></i>
+                    </span>
                 </div>
             </div>
 
