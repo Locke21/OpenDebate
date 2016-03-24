@@ -115,18 +115,52 @@ cursor: pointer;
     padding-left: 5px;
     
 }
-.popover{    
-    width: 1000px;    
+.resultDebate > div > span{
+    display: block;
 }
+.resultDebate > div > span > i{
+   margin: 10px;
+   margin-left: 5px;
+}
+
 .resultDebate:hover{
     background-color: #ddd;
     border-radius: 5px;
 }
-.popover-content{
-    max-height: 400px;    
-    overflow-y: scroll;
+.popover{    
+    width: 1000px;    
 }
 #username:hover{
    text-decoration: underline;
    cursor: pointer;
 }
+.ratersList.popover-content,
+.search.popover-content{
+   
+    background-color: #f8f8f8;
+  
+}
+
+.ratersList.popover,
+.search.popover{  
+    border-top: 3px solid #488C2A;
+}
+
+.search.popover-content{
+    max-height: 300px;
+    overflow-y: scroll;  
+    overflow-x: hidden;
+}
+
+.ratersList.popover-content{
+    max-height: 100px;
+    overflow-y: scroll;
+
+}
+
+.ratersList.popover-title,
+.search.popover-title{
+
+    background-color: #f8f8f8;
+}
+

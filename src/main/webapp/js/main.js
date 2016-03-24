@@ -32,7 +32,7 @@ $('document').ready(function () {
     });
 
     $('#searchInput').on('input', function () {
-
+        
         $.post('/OpenDebate/pages/', {
             action: 'search',
             pattern: $('#searchInput').val()
@@ -54,6 +54,8 @@ $('document').ready(function () {
                 });
             } else {
                 popover.show();
+                $('.popover').addClass('search');
+                $('.popover-content').addClass('search');
             }
 
 

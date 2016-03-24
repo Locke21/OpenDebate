@@ -16,7 +16,10 @@
           
           ${result.getTopic()}
          
-          <div style="color: grey; font-size: 8pt">- ${result.getOwner().getUsername()}, ${result.getTags()}</div>
+          <div style="color: grey; font-size: 8pt">
+              <span><i class="glyphicon glyphicon-user"></i>${result.getOwner().getUsername()}</span>
+              <span><i class="glyphicon glyphicon-tags"></i>${result.getTags()}</span>
+          </div>
           
         </div>       
     </c:forEach>
