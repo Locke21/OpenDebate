@@ -44,7 +44,7 @@ public class Debate implements Serializable {
     private boolean isOpen;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 
     private String Tags;

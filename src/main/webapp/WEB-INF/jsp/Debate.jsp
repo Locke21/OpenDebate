@@ -20,7 +20,7 @@
             <c:forEach items="${requestScope.debate.getTagList()}" var="tag" >
                 <span class="tags">${tag}</span>
             </c:forEach> 
-             
+
         </div>
     </div>
 
@@ -35,59 +35,33 @@
             </div>
         </div>
     </div>
-            <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <div class="modal-header">
                 Discussion
             </div>
             <div class="commentBox">
-            <div id="comments" class="modal-body ">
-                <!--<div class="comment">
-                    <div class="commentHeader">
-                        <div id="commentUser">philgras</div>
-                        <div id="commentDate">01.01.2016 | 08:54</div>
+                <div id="comments" class="modal-body ">
+
+                    <jsp:include page="Comments.jsp"></jsp:include>
+
                     </div>
-                    <div class="commentBody">So ein Schwachsinn..</div>
-                    <div class="commentFooter"><a role="button" data-toggle="collapse" href="#addCommentChild" aria-expanded="true" >answer</a></div>
                 </div>
+            <c:if test="${debate.isOpen == true}">
+                <div class="addComment">
 
-                <div class="addCommentChild collapse" id="addCommentChild">
-                    <input type="text" class="form-control" placeholder="addComment"/>
-                </div> 
-
-
-                
-
-                <div class="commentChild">
-                    <div class="commentHeader">
-                        <div id="commentUser">philgras</div>
-                        <div id="commentDate">01.01.2016 | 08:54</div>
+                    <div class="input-group">
+                        <input id="commentInput" type="text" class="form-control" placeholder="new comment..">
+                        <span class="input-group-btn">
+                            <button id="commentInputBtn" class="btn btn-default" value="create" type="button"><i class="glyphicon glyphicon-send"></i></button>
+                        </span>
                     </div>
-                    <div class="commentBody">Ja ich stimme dir zu</div>
-                    <div class="commentFooter">footer</div>
-                </div>-->
 
-                
-                <jsp:include page="Comments.jsp"></jsp:include>
-               
 
-            </div>
-            </div>
-
-            <div class="addComment">
-
-                <div class="input-group">
-                    <input id="commentInput" type="text" class="form-control" placeholder="new comment..">
-                    <span class="input-group-btn">
-                        <button id="commentInputBtn" class="btn btn-default" value="create" type="button"><i class="glyphicon glyphicon-send"></i></button>
-                    </span>
                 </div>
-
-
-            </div>
-
+            </c:if>
         </div>
-            
+
     </div>
 
 </div>

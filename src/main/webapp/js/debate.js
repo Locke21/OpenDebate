@@ -10,8 +10,8 @@ var listenersReload = function () {
         trigger: "manual"
     }).on("mouseenter", function(){
         $(this).popover("show");
-        $('.popover').addClass('tester');
-        $('.popover-content').addClass('tester');
+        $('.popover').addClass('ratersList');
+        $('.popover-content').addClass('ratersList');
         
         leavePopover();
     });
@@ -79,8 +79,8 @@ var listenersReload = function () {
                         command: 'create'
 
                     }, function (data) {
-                        $(currentCommentIdField).val("");
-                        $('#comments').append(data);
+                        window.location = window.location.search;
+                        
                     });
                 }
             }
@@ -131,6 +131,7 @@ $(document).ready(function () {
 
             }, function (data) {
                 $("#commentInput").val("");
+                $('.commentsInfo').hide();
                 $('#comments').append(data);
                 listenersReload();
             });

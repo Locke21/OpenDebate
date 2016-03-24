@@ -111,7 +111,9 @@ public class CommentSessionBean {
 
     public long rateComment(Long commentId, DebateUser user, Rating.RatingValue value) {
         Comment comment = em.find(Comment.class, commentId);
-
+        if(user.getUsername().equals(comment.getOwner().getUsername())){
+            throw new IllegalArgumentException();
+        }
         Rating rating = new Rating();
         rating.setComment(comment);
         rating.setUser(user);

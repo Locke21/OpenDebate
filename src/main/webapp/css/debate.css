@@ -30,10 +30,12 @@ html,body{
 }
 .commentBox > .modal-body > .comment{
     margin-top: 5px;
+    margin-bottom: 10px;
+    
     border-top: 1px solid rgb(222, 223, 231);
     border-left: 1px solid rgb(222, 223, 231);
     padding: 10px;
-    padding-bottom: 0;
+    
 }
 .commentBox > .modal-body > .comment > .commentHeader{
     display: inline-block;
@@ -45,7 +47,9 @@ html,body{
 .commentBox > .modal-body > .comment > .commentFooter{
     margin-top: 10px;
     font-size: smaller; 
+    display:inline;
 }
+
 
 .commentBox > .modal-body > .commentChild{
     margin-top: 5px;
@@ -80,10 +84,10 @@ html,body{
     
 }
 .ratingTool{
-    float: right;
+    float: right !important;;
     
 }
-.commentBox > .modal-body > .commentChild > .commentFooter > a{
+.commentBox > .modal-body > .commentChild > .commentFooter > *{
     float:left;
 }
 
@@ -124,13 +128,6 @@ html,body{
     margin-bottom: 60px;
 }
 
-.popover-content{
-    height: 100px;
-    overflow: scroll;
-    overflow-y: auto;
-}
-
-
 .downVote{
     cursor: pointer;
 }
@@ -148,19 +145,5 @@ html,body{
 }
 .counter{
     cursor: pointer;
-}
-.tester.popover-content{
-    background-color: rgba(27, 27, 27, 0.88);
-    color: white;
-  
-}
-.tester.popover{
-    max-width: 150px;
-    border-radius: 0px;
-    border-top: 3px solid #488C2A;
-}
-.tester.popover-title{
-    border-radius: 0px;
-    background-color: #f8f8f8;
 }
 
