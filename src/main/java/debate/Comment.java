@@ -59,7 +59,7 @@ public class Comment implements Serializable{
     private Collection<Comment> children;
     
     @Transient
-    private int rating;
+    private long rating;
 
     public Comment getParent() {
         return parent;
@@ -107,11 +107,11 @@ public class Comment implements Serializable{
         this.owner = owner;
     }
 
-    public int getRating() {
+    public long getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(long rating) {
         this.rating = rating;
     }
 

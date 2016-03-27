@@ -26,16 +26,13 @@ $('document').ready(function () {
 
     $('#searchInput').popover({
         html: true,
-        content: function () {
-            return $('#searchContentWrapper').html();
-        },
         trigger: 'manual'
     }).blur(function () {
         $(this).popover('hide');
     });
 
     $('#searchInput').on('input', function () {
-
+        
         $.post('/OpenDebate/pages/', {
             action: 'search',
             pattern: $('#searchInput').val()
@@ -57,6 +54,8 @@ $('document').ready(function () {
                 });
             } else {
                 popover.show();
+                $('.popover').addClass('search');
+                $('.popover-content').addClass('search');
             }
 
 

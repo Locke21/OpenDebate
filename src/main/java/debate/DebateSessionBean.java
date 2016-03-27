@@ -62,8 +62,25 @@ public class DebateSessionBean {
 
     public Debate getDebateById(Long id) {
 
-        Debate debates = em.find(Debate.class, id);
-        return debates;
+        Debate debate = em.find(Debate.class, id);
+        if(debate != null){
+            debate.setClicks(debate.getClicks()+1);
+            
+            if(debate.getClosingDate().compareTo(new Date()) < 0){
+                debate.setIsOpen(false);
+            }      
+            em.merge(debate);         
+        }
+        return debate;
+    }
+    
+    public Debate closeDebate(Long id){
+        Debate debate = em.find(Debate.class, id);
+        if(debate != null){
+            debate.setIsOpen(false);
+            em.merge(debate);
+        }
+        return debate;
     }
 
     public List<Debate> getDebatesByUser(DebateUser user) {
