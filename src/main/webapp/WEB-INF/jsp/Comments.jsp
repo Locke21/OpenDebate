@@ -34,7 +34,7 @@
         </div>
     </div>
     <c:forEach items="${comment.getChildren()}" var="childComment">
-        <div id="${comment.id}_child" class="commentChild">
+        <div id="${childComment.id}" class="commentChild">
             <div  class="commentHeader">
                 <div id="commentUser">${childComment.getOwner().getUsername()}</div>
                 <div id="commentDate">${childComment.creationDate}</div>
@@ -44,7 +44,9 @@
                 <div class="ratingTool">
                     <span>
                         <i class="glyphicon glyphicon-chevron-down downVote"></i>
-                        <span>0</span>
+                        <span class="counter" data-toggle="popover" title="Raters" data-content="" data-placement="left"> 
+                            ${childComment.rating}
+                        </span>
                         <i class="glyphicon glyphicon-chevron-up upVote"></i>
                     </span>
                 </div>

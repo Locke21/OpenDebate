@@ -42,7 +42,6 @@
                                             <div id="${debate.getId()}" class="debateBox">
                                                 <div class="debateTitle">${debate.getTopic()}</div>
                                                 <div class="debateInfo">
-                                                    Comments: 100<br>
                                                     Views: ${debate.getClicks()}<br>
                                                     Owner: ${debate.getOwner().getUsername()}
                                                 </div>

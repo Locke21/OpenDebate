@@ -32,6 +32,7 @@
             <div class="modal-body">
                 <i class="glyphicon glyphicon-user"></i> ${requestScope.debate.getOwner().getUsername()}</br>
                 <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}
+                <i class="glyphicon glyphicon-eye-open"></i> ${requestScope.debate.getClicks()}
             </div>
         </div>
     </div>
