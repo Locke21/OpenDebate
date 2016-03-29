@@ -30,10 +30,12 @@
                 Main Infos
             </div>
             <div class="modal-body">
+
                 <div class="row">
                     <div class="col-md-5">
                         <i class="glyphicon glyphicon-user"></i> ${requestScope.debate.getOwner().getUsername()}</br>
-                        <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}
+                        <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}</br>
+                        <i class="glyphicon glyphicon-eye-open"></i> ${requestScope.debate.getClicks()}
                     </div>
                     <div class="col-md-offset-1 col-md-6">
                         <i class="glyphicon glyphicon-edit"> </i> ${requestScope.debate.getDescription()}

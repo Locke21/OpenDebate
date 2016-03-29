@@ -5,16 +5,33 @@
  */
 
 var listenersReload = function () {
+    
+    
+    
     $(".counter").popover({
         html: true,
-        content: "Feggit69<br>Pimmelberger<br>MavenMarco<br>RedHat<br>MisterX<br>Everybody<br>You",
         trigger: "manual"
     }).on("mouseenter", function () {
-        $(this).popover("show");
-        $('.popover').addClass('ratersList');
-        $('.popover-content').addClass('ratersList');
+        
+        var pop = $(this);
+        
+        $.post('/OpenDebate/pages/', {
+            action: 'comment',
+            command: 'getRaters',
+            comId: pop.closest('.comment, .commentChild').attr('id')
+        }, function (data) {
+            
+            pop.data('bs.popover').options.content = data;
+            
+            pop.popover("show");
+            $('.popover').addClass('ratersList');
+            $('.popover-content').addClass('ratersList');
+            
 
-        leavePopover();
+            leavePopover();
+        });
+        
+        
     });
     
     
@@ -28,7 +45,7 @@ var listenersReload = function () {
             action: 'comment',
             command: 'rate',
             rating: 'positive',
-            comId: $(this).closest(".comment").attr('id')
+            comId: $(this).closest(".comment, .commentChild").attr('id')
         }).done(function () {
             counter.html(++counterValue);
 
@@ -47,7 +64,7 @@ var listenersReload = function () {
             action: 'comment',
             command: 'rate',
             rating: 'negative',
-            comId: $(this).closest(".comment").attr('id')
+            comId: $(this).closest(".comment, .commentChild").attr('id')
         }).done(function () {
             counter.html(--counterValue);
 
