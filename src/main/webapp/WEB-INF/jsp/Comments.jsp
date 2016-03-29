@@ -33,6 +33,9 @@
             </div>
         </div>
     </div>
+    <div class="addCommentChild collapse" id="${comment.id}_collapse">
+        <input id="${comment.id}_input" type="text" class="form-control" placeholder="add a comment.."/>
+    </div>
     <c:forEach items="${comment.getChildren()}" var="childComment">
         <div id="${comment.id}_child" class="commentChild">
             <div  class="commentHeader">
@@ -53,8 +56,6 @@
         </div>
     </c:forEach>
 
-    <div class="addCommentChild collapse" id="${comment.id}_collapse">
-        <input id="${comment.id}_input" type="text" class="form-control" placeholder="addComment"/>
-    </div>
+
 
 </c:forEach>

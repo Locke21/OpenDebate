@@ -30,39 +30,50 @@
                 Main Infos
             </div>
             <div class="modal-body">
-                <i class="glyphicon glyphicon-user"></i> ${requestScope.debate.getOwner().getUsername()}</br>
-                <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}
+                <div class="row">
+                    <div class="col-md-5">
+                        <i class="glyphicon glyphicon-user"></i> ${requestScope.debate.getOwner().getUsername()}</br>
+                        <i class="glyphicon glyphicon-calendar"></i> ${requestScope.debate.getCreationDate()}
+                    </div>
+                    <div class="col-md-offset-1 col-md-6">
+                        <i class="glyphicon glyphicon-edit"> </i> ${requestScope.debate.getDescription()}
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="modal-header">
-                Discussion
+                Discussion <a data-toggle="collapse" href="#addComment"> <i class="glyphicon glyphicon-comment" ></i></a>
+                <c:if test="${debate.isOpen == true}">
+
+                    <div id="addComment" class="collapse row addComment">
+
+                        <div class="input-group col-md-12">
+                            <input id="commentInput" type="text" class="form-control" placeholder="new comment..">
+                            <span class="input-group-btn">
+                                <button id="commentInputBtn" class="btn btn-default" value="create" type="button"><i class="glyphicon glyphicon-send"></i></button>
+                            </span>
+                        </div>
+
+
+                    </div>
+                </c:if>
             </div>
             <div class="commentBox">
                 <div id="comments" class="modal-body ">
 
                     <jsp:include page="Comments.jsp"></jsp:include>
 
-                    </div>
                 </div>
-            <c:if test="${debate.isOpen == true}">
-                <div class="addComment">
+            </div>
 
-                    <div class="input-group">
-                        <input id="commentInput" type="text" class="form-control" placeholder="new comment..">
-                        <span class="input-group-btn">
-                            <button id="commentInputBtn" class="btn btn-default" value="create" type="button"><i class="glyphicon glyphicon-send"></i></button>
-                        </span>
-                    </div>
-
-
-                </div>
-            </c:if>
         </div>
 
     </div>
+
 
 </div>
 

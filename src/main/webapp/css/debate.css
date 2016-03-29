@@ -10,6 +10,12 @@ and open the template in the editor.
 html,body{
     height: 100%;
 }
+a{
+    color: #488C2A;
+}
+a:hover{
+    color: #487828;
+}
 .genInfos{
     text-align: center;
     vertical-align: central;
@@ -22,7 +28,7 @@ html,body{
     background-color: #f8f8f8;
 }
 .commentBox{
-    background-color: #f8f8f8;
+    
     padding: 10px;
     margin-bottom: 70px;
    
@@ -30,7 +36,6 @@ html,body{
 }
 .commentBox > .modal-body > .comment{
     margin-top: 5px;
-    margin-bottom: 10px;
     
     border-top: 1px solid rgb(222, 223, 231);
     border-left: 1px solid rgb(222, 223, 231);
@@ -70,9 +75,8 @@ html,body{
 .addComment{
     
     padding: 10px;
-    position: fixed;
-    bottom: 20px;
-    width: 79%;
+    position: relative;
+   
     
 }
 .sendLayer{
@@ -105,7 +109,7 @@ html,body{
 }
 
 .titleHeader{
-   border-top: 5px solid #488C2A;
+   border-top: 3px solid #488C2A;
    background-color: #f8f8f8;
    line-height: 3;
    height: 100px;
