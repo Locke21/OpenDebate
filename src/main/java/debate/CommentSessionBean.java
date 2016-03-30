@@ -29,6 +29,22 @@ public class CommentSessionBean {
     @PersistenceContext(unitName = "OpenDebatePU")
     private EntityManager em;
 
+    /**
+     * Creates a new comment with an owner, debate, creationDate, commentText, rating, (parent, children).
+     * Checks whether the new comment is going to be 
+     * 1. a comment directly related to the debate or 
+     * 2. a subcomment
+     * If it is a subcomment a relation to its parent is being set.
+     * If the new comment would be related to a subcomment, it will not be created.
+     * 
+     * 
+     * @param user
+     * @param debateId
+     * @param commentText
+     * @param parentId
+     * @return a new comment
+     * @throws IllegalArgumentException  if a comment does not belong to a user or a debate; if the commentText has no value.
+     */
     public Comment createComment(DebateUser user, Long debateId, String commentText, Long parentId) throws Exception {
 
         //argumente prüfen
@@ -78,42 +94,20 @@ public class CommentSessionBean {
     }
     
     
-//    public Comment createChildComment(DebateUser user, Long debId, String commentText, Comment parentComment) throws Exception {
-//        Date currentTime = new Date();
-//        SimpleDateFormat myForm = new SimpleDateFormat("YYYY-MM-dd kk:mm:ss");
-//        String creationDateStr = myForm.format(currentTime);
-//        Date creationDate = myForm.parse(creationDateStr);
-//
-//        Debate debate = em.find(Debate.class, debId);
-//        if (user == null || debate == null || commentText == null) {
-//            throw new IllegalArgumentException();
-//        }
-//        Comment newComment = new Comment();
-//        newComment.setOwner(user);
-//        newComment.setDebate(debate);
-//        newComment.setCreationDate(creationDate);
-//        newComment.setCommentText(commentText);
-//        newComment.setParent(parentComment);
-//        newComment.setRating(0);
-//        
-//        Collection<Comment> childComments = parentComment.getChildren();
-//        childComments.add(newComment);
-//        parentComment.setChildren(childComments);
-//        String children = parentComment.getChildren().toString();
-//        System.out.println("kinder "+children);
-//        
-//
-//        em.persist(newComment);
-//
-//        return newComment;
-//    }
-    
     public Collection<Rating> getRatings(Long commentId){
         Comment comment = em.find(Comment.class, commentId);
         return em.createQuery("SELECT r from Rating r WHERE r.comment = :comment")
                 .setParameter("comment", comment).getResultList();
     }
 
+    /**
+     * Rates a comment if the User who rates is not the owner of the comment.
+     * 
+     * @param commentId
+     * @param user
+     * @param value
+     * @return the current rating value of a comment
+     */
     public long rateComment(Long commentId, DebateUser user, Rating.RatingValue value) {
         Comment comment = em.find(Comment.class, commentId);
         if(user.getUsername().equals(comment.getOwner().getUsername())){
@@ -131,7 +125,8 @@ public class CommentSessionBean {
     }
 
     /**
-     *
+     * Deletes a comment if the given user is the owner of the comment
+     * 
      * @param comment current comment
      * @param owner current user
      * @return true if comment was deleted
@@ -147,6 +142,13 @@ public class CommentSessionBean {
 
     }
 
+    /**
+     * Gets all the comments related to a given debate.
+     * Assigns the corresponding rating to each comment.
+     * 
+     * @param d
+     * @return a list of comments related to a given debate
+     */
     public List<Comment> getComments(Debate d) {
         List<Comment> comments = em.createQuery("SELECT c "
                 + "FROM Comment c "
@@ -163,6 +165,12 @@ public class CommentSessionBean {
         return comments;
     }
     
+    /**
+     * Looking up a comment by ID
+     * 
+     * @param commentId
+     * @return the comment corresponding to the given ID
+     */
     public Comment getCommentById(Long commentId){
         
         return em.find(Comment.class, commentId);
@@ -184,7 +192,12 @@ public class CommentSessionBean {
         return false;
     }
     
-    
+    /**
+     * Reads the positive and negative rating values and calculates the difference between them as the current rating value.
+     * 
+     * @param c
+     * @return the current rating value of a comment
+     */
     private long readCommentRating(Comment c) {
         
         String query = "SELECT count(r) FROM Rating r WHERE r.ratingValue = :rating AND r.comment = :comment";

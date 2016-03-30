@@ -28,6 +28,19 @@ public class DebateSessionBean {
     @PersistenceContext(unitName = "OpenDebatePU")
     private EntityManager em;
 
+    /**
+     * Creates a new debate with a topic, description, owner, creationDate, closingDate, tags.
+     * By creating a new debate its status will be set to isOpen = true.
+     * 
+     * 
+     * @param user
+     * @param topic
+     * @param description
+     * @param tags
+     * @param closingDate
+     * @return
+     * @throws IllegalArgumentException if the debate doesn't belong to a user; has no topic or description; if the closingDate is in the past.
+     */
     public Debate createDebate(DebateUser user, String topic, String description,
             String tags, Date closingDate) throws Exception {
 
@@ -53,7 +66,14 @@ public class DebateSessionBean {
     }
 
 
-    
+    /**
+     * Looking up a debate by ID.
+     * Increase the clicks of the debate by +1.
+     * If the closingDate is passed, the isOpen flag is set to false.
+     * 
+     * @param id
+     * @return the debate given by ID
+     */
     public Debate getDebateById(Long id) {
 
         Debate debate = em.find(Debate.class, id);
@@ -77,6 +97,12 @@ public class DebateSessionBean {
         return debate;
     }
 
+    /**
+     * Gets all the debates related to a given user.
+     * 
+     * @param user
+     * @return a list of debates
+     */
     public List<Debate> getDebatesByUser(DebateUser user) {
 
         List<Debate> debates = em.createQuery("SELECT d "
