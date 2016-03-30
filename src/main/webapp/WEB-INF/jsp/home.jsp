@@ -15,8 +15,8 @@
         <div class="col-lg-8">
             <ul class="nav nav-tabs openDebateNavTabs">
                 <li class="active"><a data-toggle="tab" href="#MyDebates">My debates</a></li>
-                <li><a data-toggle="tab" href="#HotTopics">Hot topics</a></li>
-                <li><a data-toggle="tab" href="#Participations">Participations</a></li>
+                <!--<li><a data-toggle="tab" href="#HotTopics">Hot topics</a></li>
+                <li><a data-toggle="tab" href="#Participations">Participations</a></li>-->
             </ul>
 
             <div class="tab-content">
@@ -42,7 +42,6 @@
                                             <div id="${debate.getId()}" class="debateBox">
                                                 <div class="debateTitle">${debate.getTopic()}</div>
                                                 <div class="debateInfo">
-                                                    Comments: 100<br>
                                                     Views: ${debate.getClicks()}<br>
                                                     Owner: ${debate.getOwner().getUsername()}
                                                 </div>

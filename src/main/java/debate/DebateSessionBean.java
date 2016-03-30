@@ -52,14 +52,8 @@ public class DebateSessionBean {
         return newDebate;
     }
 
-    public void closeDebate() {
 
-    }
-
-    public void deleteDebate() {
-
-    }
-
+    
     public Debate getDebateById(Long id) {
 
         Debate debate = em.find(Debate.class, id);

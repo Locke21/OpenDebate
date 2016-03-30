@@ -108,6 +108,11 @@ public class CommentSessionBean {
 //        return newComment;
 //    }
     
+    public Collection<Rating> getRatings(Long commentId){
+        Comment comment = em.find(Comment.class, commentId);
+        return em.createQuery("SELECT r from Rating r WHERE r.comment = :comment")
+                .setParameter("comment", comment).getResultList();
+    }
 
     public long rateComment(Long commentId, DebateUser user, Rating.RatingValue value) {
         Comment comment = em.find(Comment.class, commentId);
@@ -151,6 +156,9 @@ public class CommentSessionBean {
 
         for(Comment c : comments){
             c.setRating(readCommentRating(c));
+            for(Comment child : c.getChildren()){
+                child.setRating(readCommentRating(child));
+            }
         }
         return comments;
     }

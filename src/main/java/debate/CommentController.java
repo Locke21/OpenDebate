@@ -33,7 +33,7 @@ public class CommentController extends HttpServlet {
     private static final String COMMAND_CREATE = "create";
     private static final String COMMAND_READ = "read";
     private static final String COMMAND_RATE = "rate";
-    
+    private static final String COMMAND_GET_RATERS = "getRaters";
 
     private static final String ATTR_DEBID = "debateId";
     private static final String ATTR_COMMENTID = "comId";
@@ -86,7 +86,11 @@ public class CommentController extends HttpServlet {
                         request.setAttribute("comments", comments);
                         getServletContext().getRequestDispatcher(FrontController.PAGES_PREFIX + "/Comments.jsp").forward(request, response);
                         
-                    case COMMAND_READ:
+                    case COMMAND_GET_RATERS:
+                        
+                        Long commentId = Long.parseLong(request.getParameter(ATTR_COMMENTID));
+                        request.setAttribute("raters", commentBean.getRatings(commentId));
+                        getServletContext().getRequestDispatcher(FrontController.PAGES_PREFIX + "/Raters.jsp").forward(request, response);
                         
                         break;
                     case COMMAND_RATE:
