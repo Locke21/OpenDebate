@@ -52,11 +52,12 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        Utilities util = new Utilities();
         HttpSession session = request.getSession();
         List<Debate> userDebates = debateBean.getDebatesByUser(
                 (DebateUser) session.getAttribute(AuthenticationBean.USER_ATTRIBUTE));
 
-        request.setAttribute("debates", sortDebatesByDate(userDebates));
+        request.setAttribute("debates", util.sortDebatesByDate(userDebates));
 
         request.setAttribute(FrontController.INCL_PAGE_ATTR_NAME, "home.jsp");
         getServletContext().getRequestDispatcher(FrontController.TEMPLATE_PAGE)
@@ -64,42 +65,5 @@ public class HomeController extends HttpServlet {
 
     }
 
-    private Map<String, List<Debate>> sortDebatesByDate(List<Debate> debates) {
-
-        Map<String, List<Debate>> result = new TreeMap<>(Collections.reverseOrder(
-                new Comparator<String>() {
-
-            @Override
-            public int compare(String o1, String o2) {
-                try {
-
-                    SimpleDateFormat formatter = new SimpleDateFormat("MMM yyyy", Locale.ENGLISH);
-                    return formatter.parse(o1).compareTo(formatter.parse(o2));
-
-                } catch (ParseException ex) {
-                    return 0;
-                }
-            }
-        }
-        ));
-
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM yyyy", Locale.ENGLISH);
-        String date;
-        List<Debate> debatesSubList;
-
-        for (Debate d : debates) {
-            date = formatter.format(d.getCreationDate());
-            debatesSubList = result.get(date);
-
-            if (debatesSubList == null) {
-                debatesSubList = new ArrayList<>();
-                result.put(date, debatesSubList);
-            }
-
-            debatesSubList.add(d);
-        }
-
-        return result;
-    }
 
 }
