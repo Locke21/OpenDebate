@@ -15,7 +15,6 @@
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/libs/datepicker.css">
         <link type="text/css" rel="stylesheet" href="/OpenDebate/css/home.css">
         <link tpye="text/css" rel="stylesheet" href="/OpenDebate/css/debate.css">
-        <link tpye="text/css" rel="stylesheet" href="/OpenDebate/css/addDebate.css">
         <link tpye="text/css" rel="stylesheet" href="/OpenDebate/css/profile.css">
         <script type="text/javascript" src="/OpenDebate/js/libs/jquery-1.11.0.js"></script>
         <script type="text/javascript" src="/OpenDebate/js/libs/bootstrap-tagsinput.js"></script>
@@ -52,7 +51,8 @@
 
                     <form class="navbar-form navbar-right" action="." method="post">
                         <div class="form-group">
-                            <input type="hidden" name="action" value="logout">
+                            <input type="hidden" name="action" value="user">
+                            <input type="hidden" name="context" value="logout">
                             <button class="btn btn-default logoutBtn"type="submit">
                                 <i class="glyphicon glyphicon-off"></i>
                         </div>

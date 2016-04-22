@@ -7,7 +7,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="debate.rating.Rating" %>
+<%@page import="entity.Rating" %>
 <!DOCTYPE html>
 <div>
     <c:if test="${requestScope.raters.size() == 0}">

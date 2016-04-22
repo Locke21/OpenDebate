@@ -5,7 +5,7 @@
  */
 package users;
 
-import authentication.DebateUser;
+import entity.DebateUser;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

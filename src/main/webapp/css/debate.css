@@ -154,3 +154,50 @@ a:hover{
     color: red;
 }
 
+.debateCreationHeader{
+    padding: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+}
+.debateCreationBody{
+    padding: 20px;
+}
+.options{
+    background-color: white;
+    margin-top: 10px;
+    
+}
+.innerHeader{
+    padding: 5px;
+    border-bottom: 1px solid lightgrey;
+}
+.options > .modal-body {
+    padding: 5px;
+    
+}
+.form-group > label{
+    margin-top: 10px;
+}
+.form-group > label > i{
+    font-size: smaller;
+}
+
+#createForm > .form-group > input{
+    
+    margin-top: 5px;
+    margin-bottom: 15px;
+    
+}
+
+.bootstrap-tagsinput{
+    width: 100%;
+}
+span.tag.label.label-info{
+    background-color: rgba(128, 128, 128, 0.22);
+    color: green;
+}
+.datepicker,
+.datepicker:hover{
+    cursor: auto;
+}
+

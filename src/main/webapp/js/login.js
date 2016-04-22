@@ -77,7 +77,8 @@ $('document').ready(function () {
                 newUser: username,
                 newPassword: password,
                 newPassword2: password2,
-                action: "signUp"
+                action: "user",
+                context: "signUp"
             }).fail(function () {
                 $('#infoSpanSignUp').addClass('error').html("The username already exists!");
                 $('#userNameField').addClass('has-error');
